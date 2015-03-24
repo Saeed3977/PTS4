@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">HealthApp</string>
     <string name="title_activity_home">HealthApp</string>
-    <color name="backgroundLight">#00a652</color>
-    <color name="backgroundDark">#006633</color>
+    <string name="foodDiary">Food Diary</string>
+    <string name="foodList">Food List</string>
+    <string name="settings">Settings</string>
 </resources>
