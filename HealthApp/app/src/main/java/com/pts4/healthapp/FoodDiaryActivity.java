@@ -3,8 +3,11 @@ package com.pts4.healthapp;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class FoodDiaryActivity extends Activity {
@@ -15,6 +18,11 @@ public class FoodDiaryActivity extends Activity {
         setContentView(R.layout.activity_food_diary);
 
         populateDiaryListView();
+
+        //Set today's date in title
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        TextView dateView = (TextView)findViewById(R.id.dateTextView);
+        dateView.setText(sdf.format(new Date()));
     }
 
     private void populateDiaryListView()

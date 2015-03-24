@@ -7,4 +7,5 @@
 
     <string name="foodDiary">Food Diary</string>
     <string name="foodList">Food List</string>
+    <string name="addEntry">Add Entry</string>
 </resources>
