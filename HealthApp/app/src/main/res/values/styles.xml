@@ -31,4 +31,19 @@
         <item name="android:textColor">@color/darkGrey</item>
         <item name="android:padding">6dp</item>
     </style>
+
+    <style name="diaryTotalTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">11pt</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+    <style name="diaryTotalTextView.title">
+        <item name="android:layout_alignParentStart">true</item>
+    </style>
+
+    <style name="diaryTotalTextView.value">
+        <item name="android:layout_alignParentEnd">true</item>
+    </style>
 </resources>
