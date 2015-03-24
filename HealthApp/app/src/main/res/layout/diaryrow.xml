@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/backgroundLight">
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/diaryRowTextView.title"
+        android:text="TestWoorden">
+    </TextView>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/time"
+            style="@style/diaryRowTextView.detail"
+            android:text="Testwoorden"
+            android:layout_alignParentStart="true"
+            />
+
+        <TextView
+            android:id="@+id/weight"
+            style="@style/diaryRowTextView.detail"
+            android:text="Testwoorden"
+            android:layout_centerInParent="true"
+            />
+
+        <TextView
+            android:id="@+id/calories"
+            style="@style/diaryRowTextView.detail"
+            android:text="Testwoorden"
+            android:layout_alignParentEnd="true"
+            />
+
+        </RelativeLayout>
+
+</RelativeLayout>

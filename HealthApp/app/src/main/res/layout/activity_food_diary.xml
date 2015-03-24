@@ -7,5 +7,11 @@
     tools:context="com.pts4.healthapp.FoodDiaryActivity"
     android:background="@color/backgroundDark">
 
-
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/diaryListView"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5dp"></ListView>
+    
 </RelativeLayout>
