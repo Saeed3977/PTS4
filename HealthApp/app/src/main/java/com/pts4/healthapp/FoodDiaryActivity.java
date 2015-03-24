@@ -11,7 +11,6 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 
 public class FoodDiaryActivity extends Activity {
@@ -46,12 +45,12 @@ public class FoodDiaryActivity extends Activity {
         lv.setAdapter(adapter);
     }
 
-    private ArrayList<DiaryEntry> generateData()
+    private ArrayList<Meal> generateData()
     {
-        DiaryEntry d = new DiaryEntry("Bacon Cheese Burger", "12:48", "248g", "478kcal");
-        DiaryEntry d1 = new DiaryEntry("Appel", "13:28", "66g", "22kcal");
-        DiaryEntry d2 = new DiaryEntry("Banaan", "15:11", "70g", "41kcal");
-        ArrayList<DiaryEntry> entries = new ArrayList<>();
+        Meal d = new Meal("Bacon Cheese Burger", "12:48", "248g", "478kcal");
+        Meal d1 = new Meal("Appel", "13:28", "66g", "22kcal");
+        Meal d2 = new Meal("Banaan", "15:11", "70g", "41kcal");
+        ArrayList<Meal> entries = new ArrayList<>();
         entries.add(d);
         entries.add(d1);
         entries.add(d2);
@@ -59,13 +58,12 @@ public class FoodDiaryActivity extends Activity {
         {
             entries.add(d2);
         }
-
         return entries;
     }
 
-    private ArrayList<DiaryEntry> getTodaysFood(){
-        ArrayList<DiaryEntry> todaysDiaryEntries = new ArrayList<DiaryEntry>();
-        todaysDiaryEntries = (ArrayList)DiaryEntry.listAll(DiaryEntry.class);
+    private ArrayList<Meal> getTodaysFood(){
+        ArrayList<Meal> todaysDiaryEntries = new ArrayList<Meal>();
+        todaysDiaryEntries = (ArrayList) Meal.listAll(Meal.class);
         return todaysDiaryEntries;
     }
 }

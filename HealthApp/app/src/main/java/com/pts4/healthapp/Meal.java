@@ -2,25 +2,29 @@ package com.pts4.healthapp;
 
 import com.orm.SugarRecord;
 
+import java.util.Date;
+
 /**
  * Created by Joep on 24-3-2015.
  */
-public class DiaryEntry extends SugarRecord<DiaryEntry>
+public class Meal extends SugarRecord<Meal>
 {
     private String name;
     private String time;
     private String weight;
     private String calories;
+    private Date   date;
 
-    public DiaryEntry(){}
+    public Meal(){}
 
-    public DiaryEntry(String name, String time, String weight, String calories)
+    public Meal(String name, String time, String weight, String calories)
     {
         super();
         this.name = name;
         this.time = time;
         this.weight = weight;
         this.calories = calories;
+        this.date = date;
     }
 
     public String getName()
@@ -41,5 +45,9 @@ public class DiaryEntry extends SugarRecord<DiaryEntry>
     public String getCalories()
     {
         return calories;
+    }
+
+    public Date getDate(){
+        return this.date;
     }
 }

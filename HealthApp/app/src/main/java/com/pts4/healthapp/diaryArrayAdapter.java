@@ -12,12 +12,12 @@ import java.util.ArrayList;
 /**
  * Created by Joep on 24-3-2015.
  */
-public class DiaryArrayAdapter extends ArrayAdapter<DiaryEntry> {
+public class DiaryArrayAdapter extends ArrayAdapter<Meal> {
 
     private final Context context;
-    private final ArrayList<DiaryEntry> entries;
+    private final ArrayList<Meal> entries;
 
-    public DiaryArrayAdapter(Context context, ArrayList<DiaryEntry> entries)
+    public DiaryArrayAdapter(Context context, ArrayList<Meal> entries)
     {
         super(context, R.layout.diaryrow, entries);
 
