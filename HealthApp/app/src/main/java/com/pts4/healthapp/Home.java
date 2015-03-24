@@ -18,6 +18,11 @@ public class Home extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        setOnClicks();
+    }
+
+    private void setOnClicks()
+    {
         View foodDiaryButton = findViewById(R.id.diaryButton);
         foodDiaryButton.setOnClickListener(new View.OnClickListener()
         {
@@ -26,6 +31,17 @@ public class Home extends Activity {
             {
                 Intent diaryIntent = new Intent(v.getContext(), FoodDiaryActivity.class);
                 v.getContext().startActivity(diaryIntent);
+            }
+        });
+
+        View foodListButton = findViewById(R.id.foodListButton);
+        foodListButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent foodListIntent = new Intent(v.getContext(), FoodListActivity.class);
+                v.getContext().startActivity(foodListIntent);
             }
         });
     }
