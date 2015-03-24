@@ -51,4 +51,14 @@
         <item name="android:background">@color/backgroundLight</item>
         <item name="android:layout_marginBottom">5dp</item>
     </style>
+
+    <style name="newEntryView">
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+    <style name="newEntryView.title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">11pt</item>
+    </style>
 </resources>

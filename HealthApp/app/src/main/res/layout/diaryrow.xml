@@ -6,8 +6,7 @@
 
     <TextView
         android:id="@+id/name"
-        style="@style/diaryRowTextView.title"
-        android:text="TestWoorden">
+        style="@style/diaryRowTextView.title">
     </TextView>
 
     <RelativeLayout
@@ -19,24 +18,19 @@
         <TextView
             android:id="@+id/time"
             style="@style/diaryRowTextView.detail"
-            android:text="Testwoorden"
             android:layout_alignParentStart="true"
             />
 
         <TextView
             android:id="@+id/weight"
             style="@style/diaryRowTextView.detail"
-            android:text="Testwoorden"
             android:layout_centerInParent="true"
             />
 
         <TextView
             android:id="@+id/calories"
             style="@style/diaryRowTextView.detail"
-            android:text="Testwoorden"
             android:layout_alignParentEnd="true"
             />
-
         </RelativeLayout>
-
 </RelativeLayout>
