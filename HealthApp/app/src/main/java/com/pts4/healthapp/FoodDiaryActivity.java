@@ -58,6 +58,7 @@ public class FoodDiaryActivity extends Activity {
         {
             entries.add(d2);
         }
+
         return entries;
     }
 

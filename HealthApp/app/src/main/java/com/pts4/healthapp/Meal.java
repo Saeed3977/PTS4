@@ -24,7 +24,7 @@ public class Meal extends SugarRecord<Meal>
         this.time = time;
         this.weight = weight;
         this.calories = calories;
-        this.date = date;
+        this.date = new Date();
     }
 
     public String getName()
