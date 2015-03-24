@@ -2,7 +2,10 @@ package com.pts4.healthapp;
 
 import com.orm.SugarRecord;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Joep on 24-3-2015.
@@ -15,6 +18,8 @@ public class Meal extends SugarRecord<Meal>
     private String calories;
     private Date   date;
 
+    private List<Food> ingredients = new ArrayList<>();
+
     public Meal(){}
 
     public Meal(String name, String time, String weight, String calories)
@@ -25,6 +30,16 @@ public class Meal extends SugarRecord<Meal>
         this.weight = weight;
         this.calories = calories;
         this.date = new Date();
+    }
+
+    public void addFood(Food food)
+    {
+        ingredients.add(food);
+    }
+
+    public List<Food> getFood()
+    {
+        return Collections.unmodifiableList(ingredients);
     }
 
     public String getName()
