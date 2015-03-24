@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 public class FoodDiaryActivity extends Activity {
@@ -40,7 +41,7 @@ public class FoodDiaryActivity extends Activity {
 
     private void populateDiaryListView()
     {
-        DiaryArrayAdapter adapter = new DiaryArrayAdapter(this, generateData());
+        DiaryArrayAdapter adapter = new DiaryArrayAdapter(this, getTodaysFood());
         ListView lv = (ListView)findViewById(R.id.diaryListView);
         lv.setAdapter(adapter);
     }
@@ -60,5 +61,11 @@ public class FoodDiaryActivity extends Activity {
         }
 
         return entries;
+    }
+
+    private ArrayList<DiaryEntry> getTodaysFood(){
+        ArrayList<DiaryEntry> todaysDiaryEntries = new ArrayList<DiaryEntry>();
+        todaysDiaryEntries = (ArrayList)DiaryEntry.listAll(DiaryEntry.class);
+        return todaysDiaryEntries;
     }
 }
