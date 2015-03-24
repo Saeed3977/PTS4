@@ -3,14 +3,23 @@
     package="com.pts4.healthapp" >
 
     <application
+        android:name="com.orm.SugarApp"
         android:allowBackup="true"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        android:name="com.orm.SugarApp" >
-        <meta-data android:name="DATABASE" android:value="healthapp.db" />
-        <meta-data android:name="VERSION" android:value="2" />
-        <meta-data android:name="QUERY_LOG" android:value="true" />
-        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.example" />
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="DATABASE"
+            android:value="healthapp.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="2" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.example" />
+
         <activity
             android:name=".Home"
             android:exported="true"
@@ -31,6 +40,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pts4.healthapp.Home" />
+        </activity>
+        <activity
+            android:name=".DiaryAddEntryActivity"
+            android:label="@string/title_activity_diary_add_entry"
+            android:parentActivityName=".FoodDiaryActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pts4.healthapp.FoodDiaryActivity" />
         </activity>
     </application>
 

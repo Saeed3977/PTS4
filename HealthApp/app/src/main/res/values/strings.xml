@@ -8,4 +8,7 @@
     <string name="foodDiary">Food Diary</string>
     <string name="foodList">Food List</string>
     <string name="addEntry">Add Entry</string>
+    <string name="title_activity_diary_add_entry">DiaryAddEntryActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

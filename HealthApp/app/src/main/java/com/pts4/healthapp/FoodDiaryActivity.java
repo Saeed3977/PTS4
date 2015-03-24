@@ -1,7 +1,10 @@
 package com.pts4.healthapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,6 +26,16 @@ public class FoodDiaryActivity extends Activity {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         TextView dateView = (TextView)findViewById(R.id.dateTextView);
         dateView.setText(sdf.format(new Date()));
+
+        //Navigation to Add Entry
+        Button addEntryButton = (Button)findViewById(R.id.addEntryButton);
+        addEntryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newEntryIntent = new Intent(v.getContext(), DiaryAddEntryActivity.class);
+                v.getContext().startActivity(newEntryIntent);
+            }
+        });
     }
 
     private void populateDiaryListView()
