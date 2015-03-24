@@ -2,12 +2,7 @@ package com.pts4.healthapp;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -24,7 +19,7 @@ public class FoodDiaryActivity extends Activity {
 
     private void populateDiaryListView()
     {
-        diaryArrayAdapter adapter = new diaryArrayAdapter(this, generateData());
+        DiaryArrayAdapter adapter = new DiaryArrayAdapter(this, generateData());
         ListView lv = (ListView)findViewById(R.id.diaryListView);
         lv.setAdapter(adapter);
     }
