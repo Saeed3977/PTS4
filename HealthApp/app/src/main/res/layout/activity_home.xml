@@ -14,22 +14,20 @@
         android:layout_alignParentStart="true">
 
         <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Food Diary"
-            android:id="@+id/diaryButton"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:background="@color/backgroundLight"/>
+            style="@style/menuButton"
+            android:text="@string/foodDiary"
+            android:id="@+id/diaryButton"/>
 
         <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Food List"
-            android:id="@+id/foodListButton"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:background="@color/backgroundLight"/>
+            style="@style/menuButton"
+            android:text="@string/foodList"
+            android:id="@+id/foodListButton"/>
 
+        <Button
+            style="@style/menuButton"
+            android:text="@string/settings"
+            android:id="@+id/settingsButton"/>
         </LinearLayout>
+
+
 </RelativeLayout>

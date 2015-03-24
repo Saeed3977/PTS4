@@ -9,8 +9,16 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".Home"
-            android:label="@string/title_activity_home"
-            android:exported="true" >
+            android:exported="true"
+            android:label="@string/title_activity_home" >
+        </activity>
+        <activity
+            android:name=".FoodDiaryActivity"
+            android:label="@string/title_activity_food_diary"
+            android:parentActivityName=".Home" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pts4.healthapp.Home" />
         </activity>
     </application>
 
