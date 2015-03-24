@@ -23,10 +23,6 @@
             android:text="@string/foodList"
             android:id="@+id/foodListButton"/>
 
-        <Button
-            style="@style/menuButton"
-            android:text="@string/settings"
-            android:id="@+id/settingsButton"/>
         </LinearLayout>
 
 
