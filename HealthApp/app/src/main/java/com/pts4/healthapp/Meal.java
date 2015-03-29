@@ -18,7 +18,7 @@ public class Meal extends SugarRecord<Meal>
     private String calories;
     private Date   date;
 
-    private List<Food> ingredients = new ArrayList<>();
+    private ArrayList<Food> ingredients = new ArrayList<>();
 
     public Meal(){}
 
@@ -64,5 +64,25 @@ public class Meal extends SugarRecord<Meal>
 
     public Date getDate(){
         return this.date;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public void setTime(String time)
+    {
+        this.time = time;
+    }
+
+    public void setIngredients(ArrayList<Food> ingredients)
+    {
+        this.ingredients = ingredients;
+    }
+
+    public void setDate(Date date)
+    {
+        this.date = date;
     }
 }
