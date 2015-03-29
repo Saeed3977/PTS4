@@ -44,7 +44,8 @@
         <activity
             android:name=".DiaryAddEntryActivity"
             android:label="@string/title_activity_diary_add_entry"
-            android:parentActivityName=".FoodDiaryActivity" >
+            android:parentActivityName=".FoodDiaryActivity"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pts4.healthapp.FoodDiaryActivity" />
