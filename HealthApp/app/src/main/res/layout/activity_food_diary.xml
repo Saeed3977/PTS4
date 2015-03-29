@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:id="@+id/diaryListView"
-        android:divider="@android:color/background_light"
+        android:divider="@color/backgroundLight"
         android:dividerHeight="1dp"></ListView>
 
     <!--<LinearLayout-->
