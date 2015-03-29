@@ -40,7 +40,7 @@ public class FoodDiaryActivity extends Activity {
 
     private void populateDiaryListView()
     {
-        DiaryArrayAdapter adapter = new DiaryArrayAdapter(this, getTodaysFood());
+        DiaryArrayAdapter adapter = new DiaryArrayAdapter(this, generateData());
         ListView lv = (ListView)findViewById(R.id.diaryListView);
         lv.setAdapter(adapter);
     }
