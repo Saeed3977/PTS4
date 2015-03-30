@@ -16,9 +16,9 @@ public class Meal extends SugarRecord<Meal>
     private String time;
     private String weight;
     private String calories;
-    private Date   date;
+    private String entryDate;
 
-    private ArrayList<Food> ingredients = new ArrayList<>();
+    //private ArrayList<Food> ingredients = new ArrayList<>();
 
     public Meal(){}
 
@@ -29,18 +29,18 @@ public class Meal extends SugarRecord<Meal>
         this.time = time;
         this.weight = weight;
         this.calories = calories;
-        this.date = new Date();
+        this.entryDate = new Date().toString();
     }
-
-    public void addFood(Food food)
-    {
-        ingredients.add(food);
-    }
-
-    public List<Food> getFood()
-    {
-        return Collections.unmodifiableList(ingredients);
-    }
+//
+//    public void addFood(Food food)
+//    {
+//        ingredients.add(food);
+//    }
+//
+//    public List<Food> getFood()
+//    {
+//        return Collections.unmodifiableList(ingredients);
+//    }
 
     public String getName()
     {
@@ -62,8 +62,8 @@ public class Meal extends SugarRecord<Meal>
         return calories;
     }
 
-    public Date getDate(){
-        return this.date;
+    public String getEntryDate(){
+        return this.entryDate;
     }
 
     public void setName(String name)
@@ -76,13 +76,13 @@ public class Meal extends SugarRecord<Meal>
         this.time = time;
     }
 
-    public void setIngredients(ArrayList<Food> ingredients)
-    {
-        this.ingredients = ingredients;
-    }
+//    public void setIngredients(ArrayList<Food> ingredients)
+//    {
+//        this.ingredients = ingredients;
+//    }
 
-    public void setDate(Date date)
+    public void setEntryDate(String entryDate)
     {
-        this.date = date;
+        this.entryDate = entryDate;
     }
 }

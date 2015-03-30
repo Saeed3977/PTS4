@@ -39,7 +39,7 @@ public class FoodDiaryActivity extends Activity {
 
     private void populateDiaryListView()
     {
-        DiaryArrayAdapter adapter = new DiaryArrayAdapter(this, generateData());
+        DiaryArrayAdapter adapter = new DiaryArrayAdapter(this, getTodaysFood());
         ListView lv = (ListView)findViewById(R.id.diaryListView);
         lv.setAdapter(adapter);
     }
@@ -62,6 +62,9 @@ public class FoodDiaryActivity extends Activity {
     }
 
     private ArrayList<Meal> getTodaysFood(){
+        Meal x = new Meal("b", "c", "d", "e");
+        x.save();
+
         ArrayList<Meal> todaysDiaryEntries = new ArrayList<Meal>();
         todaysDiaryEntries = (ArrayList) Meal.listAll(Meal.class);
         return todaysDiaryEntries;
