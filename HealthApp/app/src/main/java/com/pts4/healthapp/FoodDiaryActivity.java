@@ -44,27 +44,7 @@ public class FoodDiaryActivity extends Activity {
         lv.setAdapter(adapter);
     }
 
-    private ArrayList<Meal> generateData()
-    {
-        Meal d = new Meal("Bacon Cheese Burger", "12:48", "248g", "478kcal");
-        Meal d1 = new Meal("Appel", "13:28", "66g", "22kcal");
-        Meal d2 = new Meal("Banaan", "15:11", "70g", "41kcal");
-        ArrayList<Meal> entries = new ArrayList<>();
-        entries.add(d);
-        entries.add(d1);
-        entries.add(d2);
-        for(int i = 0; i < 10; i++)
-        {
-            entries.add(d2);
-        }
-
-        return entries;
-    }
-
     private ArrayList<Meal> getTodaysFood(){
-        Meal x = new Meal("b", "c", "d", "e");
-        x.save();
-
         ArrayList<Meal> todaysDiaryEntries = new ArrayList<Meal>();
         todaysDiaryEntries = (ArrayList) Meal.listAll(Meal.class);
         return todaysDiaryEntries;
