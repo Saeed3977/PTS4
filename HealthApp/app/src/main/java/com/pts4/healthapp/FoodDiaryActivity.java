@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,6 +36,16 @@ public class FoodDiaryActivity extends Activity {
                 v.getContext().startActivity(newEntryIntent);
             }
         });
+
+        //Nav to details activity
+        final ListView lv = (ListView)findViewById(R.id.diaryListView);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent detailsIntent = new Intent(lv.getContext(), MealDetailsActivity.class);
+                lv.getContext().startActivity(detailsIntent);
+            }
+        });
     }
 
     private void populateDiaryListView()
@@ -44,27 +55,7 @@ public class FoodDiaryActivity extends Activity {
         lv.setAdapter(adapter);
     }
 
-    private ArrayList<Meal> generateData()
-    {
-        Meal d = new Meal("Bacon Cheese Burger", "12:48", "248g", "478kcal");
-        Meal d1 = new Meal("Appel", "13:28", "66g", "22kcal");
-        Meal d2 = new Meal("Banaan", "15:11", "70g", "41kcal");
-        ArrayList<Meal> entries = new ArrayList<>();
-        entries.add(d);
-        entries.add(d1);
-        entries.add(d2);
-        for(int i = 0; i < 10; i++)
-        {
-            entries.add(d2);
-        }
-
-        return entries;
-    }
-
     private ArrayList<Meal> getTodaysFood(){
-        Meal x = new Meal("b", "c", "d", "e");
-        x.save();
-
         ArrayList<Meal> todaysDiaryEntries = new ArrayList<Meal>();
         todaysDiaryEntries = (ArrayList) Meal.listAll(Meal.class);
         return todaysDiaryEntries;
