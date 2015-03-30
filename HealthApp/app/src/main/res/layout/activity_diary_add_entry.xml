@@ -1,40 +1,77 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.pts4.healthapp.DiaryAddEntryActivity"
     android:background="@color/backgroundDark"
     android:orientation="vertical">
 
-    <TextView
-        style="@style/newEntryView.title"
-        android:id="@+id/nameTitle"
-        android:text="@string/name"/>
+    <RelativeLayout
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-    <EditText
-        style="@style/newEntryView"
-        android:id="@+id/nameValue"
-        android:background="#ffffff"
-        android:layout_width="200dp"
+        <TextView
+            style="@style/newEntryView.title"
+            android:id="@+id/nameTitle"
+            android:text="@string/name"/>
+
+        <EditText
+            style="@style/newEntryView"
+            android:id="@+id/nameValue"
+            android:background="#ffffff"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            style="@style/newEntryView.title"
+            android:id="@+id/timeTitle"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/nameTitle"
+            android:text="@string/time"/>
+
+        <TextView
+            style="@style/newEntryView.title"
+            android:id="@+id/timeValue"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBaseline="@+id/timeTitle"
+            android:text="XX:XX"/>
+        </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"/>
+        android:layout_weight="40"
+        android:orientation="vertical">
 
-    <TextView
-        style="@style/newEntryView.title"
-        android:id="@+id/timeTitle"
-        android:gravity="center_vertical"
-        android:layout_below="@+id/nameTitle"
-        android:text="@string/time"/>
+        <TextView
+            android:paddingLeft="6dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14pt"
+            android:text="Ingredients"/>
 
-    <TextView
-        style="@style/newEntryView.title"
-        android:id="@+id/timeValue"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBaseline="@+id/timeTitle"
-        android:text="XX:XX"/>
+        <ListView
+            android:id="@+id/foodPicker"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/ListView"
+            android:dividerHeight="5dp"
+            android:divider="@android:color/transparent"
+            android:layout_alignParentBottom="true"></ListView>
+        </LinearLayout>
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/confirmEntryButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:background="@color/backgroundLight"
+        android:text="@string/addEntry"
+        android:layout_marginTop="5dp"/>
+
+</LinearLayout>

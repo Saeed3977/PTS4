@@ -24,8 +24,7 @@ public class FoodDiaryActivity extends Activity {
 
         //Set today's date in title
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        TextView dateView = (TextView)findViewById(R.id.dateTextView);
-        dateView.setText(sdf.format(new Date()));
+        this.setTitle("Food Diary - " + sdf.format(new Date()));
 
         //Navigation to Add Entry
         Button addEntryButton = (Button)findViewById(R.id.addEntryButton);
@@ -40,7 +39,7 @@ public class FoodDiaryActivity extends Activity {
 
     private void populateDiaryListView()
     {
-        DiaryArrayAdapter adapter = new DiaryArrayAdapter(this, getTodaysFood());
+        DiaryArrayAdapter adapter = new DiaryArrayAdapter(this, generateData());
         ListView lv = (ListView)findViewById(R.id.diaryListView);
         lv.setAdapter(adapter);
     }
