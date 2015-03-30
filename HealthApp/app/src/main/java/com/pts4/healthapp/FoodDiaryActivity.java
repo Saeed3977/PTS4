@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,6 +34,16 @@ public class FoodDiaryActivity extends Activity {
             public void onClick(View v) {
                 Intent newEntryIntent = new Intent(v.getContext(), DiaryAddEntryActivity.class);
                 v.getContext().startActivity(newEntryIntent);
+            }
+        });
+
+        //Nav to details activity
+        final ListView lv = (ListView)findViewById(R.id.diaryListView);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent detailsIntent = new Intent(lv.getContext(), MealDetailsActivity.class);
+                lv.getContext().startActivity(detailsIntent);
             }
         });
     }
