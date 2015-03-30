@@ -5,14 +5,10 @@
     <string name="title_activity_food_diary">Food Diary</string>
     <string name="title_activity_food_list">Food List</string>
     <string name="title_activity_diary_add_entry">Add Diary Entry</string>
+    <string name="title_activity_meal_details">Meal Details</string>
 
     <string name="foodDiary">Food Diary</string>
     <string name="foodList">Food List</string>
     <string name="addEntry">Add Entry</string>
     <string name="name">Name</string>
-    <string name="time">Time</string>
-    <string name="title_activity_meal_details">MealDetailsActivity</string>
-
-    <string name="hello_world">Hello world!</string>
-
 </resources>
