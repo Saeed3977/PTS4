@@ -9,16 +9,16 @@
         android:theme="@style/AppTheme" >
         <meta-data
             android:name="DATABASE"
-            android:value="healthapp.db" />
+            android:value="healthapp3.db" />
         <meta-data
             android:name="VERSION"
-            android:value="3" />
+            android:value="1" />
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />
         <meta-data
             android:name="DOMAIN_PACKAGE_NAME"
-            android:value="com.example" />
+            android:value="com.pts4.healthapp" />
 
         <activity
             android:name=".Home"

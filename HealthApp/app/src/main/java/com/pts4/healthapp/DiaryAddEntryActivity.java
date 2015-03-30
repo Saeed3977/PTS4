@@ -92,8 +92,7 @@ public class DiaryAddEntryActivity extends Activity {
 
         Meal newEntry = new Meal();
         newEntry.setName(((EditText)findViewById(R.id.nameValue)).getText().toString());
-        newEntry.setDate(new Date());
-        newEntry.setIngredients(foods);
+        //newEntry.setIngredients(foods);
         String entryTime = (new Date()).toGMTString();
         newEntry.setTime(entryTime);
 
