@@ -20,7 +20,6 @@ import java.util.List;
 
 public class FoodListActivity extends Activity {
 
-    private List<Food> foodlist;
     ArrayList<String> items = new ArrayList<String>();
 
     @Override
@@ -47,7 +46,8 @@ public class FoodListActivity extends Activity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String value = input.getText().toString();
-                        items.add(value);
+                        addFood(value);
+                        populateFoodListView();
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -64,19 +64,15 @@ public class FoodListActivity extends Activity {
 
     private void populateFoodListView()
     {
+        if (!loadFoodlist())
+        {
+            items.add("No food in list!");
+        }
+
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         ListView foodList = (ListView)findViewById(R.id.foodListView);
         foodList.setAdapter(adapter);
-        items.add("Banana");
-        items.add("Butter");
-        items.add("White Bread");
-        items.add("Wholegrain Bread");
-        items.add("Tomato Sauce");
-        items.add("Milk");
-        items.add("Egg");
-        items.add("Cheese");
-        items.add("Pepper");
-        items.add("Salt");
     }
 
     /**
@@ -86,7 +82,13 @@ public class FoodListActivity extends Activity {
         List<Food> foods = Food.listAll(Food.class);
 
         if (foods.size() > 0) {
-            foodlist = foods;
+
+            items.clear();
+            
+            for (Food f : foods) {
+                items.add(f.getName());
+            }
+
             return true;
         }
 
@@ -101,5 +103,6 @@ public class FoodListActivity extends Activity {
     private void addFood(String name) {
         Food food = new Food(name);
         food.save();
+
     }
 }
