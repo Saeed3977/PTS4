@@ -11,5 +11,8 @@
     <string name="addEntry">Add Entry</string>
     <string name="name">Name</string>
     <string name="time">Time</string>
+    <string name="title_activity_meal_details">MealDetailsActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>
