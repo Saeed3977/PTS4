@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -87,9 +88,9 @@ public class DiaryAddEntryActivity extends Activity {
 
         Meal newEntry = new Meal();
         newEntry.setName(((EditText)findViewById(R.id.nameValue)).getText().toString());
-        //newEntry.setIngredients(foods);
-        String entryTime = (new Date()).toGMTString();
-        newEntry.setTime(entryTime);
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        newEntry.setTime(sdf.format(new Date()));
+        newEntry.save();
 
         return isSuccess;
     }
