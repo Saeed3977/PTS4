@@ -39,17 +39,22 @@ public class DiaryAddEntryActivity extends Activity {
         confirmEntryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(saveEntry())
-                {
-                    finish();
-                }
-                else
-                {
-                    AlertDialog alertDialog = new AlertDialog.Builder(confirmEntryButton.getContext()).create();
-                    alertDialog.setMessage("Meal could not be added to diary.");
-                    alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {}});
-                    alertDialog.show();
+                ListView foodPicker = (ListView)findViewById(R.id.foodPicker);
+
+                if (((EditText)findViewById(R.id.nameValue)).getText().toString().length() > 0
+                        && foodPicker.getCheckedItemCount() > 0) {
+
+                    if (saveEntry()) {
+                        finish();
+                    } else {
+                        AlertDialog alertDialog = new AlertDialog.Builder(confirmEntryButton.getContext()).create();
+                        alertDialog.setMessage("Meal could not be added to diary.");
+                        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        });
+                        alertDialog.show();
+                    }
                 }
             }
         });
@@ -91,6 +96,30 @@ public class DiaryAddEntryActivity extends Activity {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         newEntry.setTime(sdf.format(new Date()));
         newEntry.save();
+
+        List<Meal> allMeals = Meal.listAll(Meal.class);
+        Meal lastMeal = allMeals.get(allMeals.size()-1);
+        long mealID = lastMeal.getId();
+
+        List<Food> allFoods = Food.listAll(Food.class);
+        List<Food> ingredients = new ArrayList<Food>();
+        for(Food f: allFoods)
+        {
+            for (Food f2: foods)
+            {
+                if(f.getName().equals(f2.getName()))
+                {
+                    ingredients.add(f);
+                }
+            }
+        }
+
+        for(Food x: ingredients)
+        {
+            Ingredient newIngredient = new Ingredient(mealID, x.getId());
+            newIngredient.save();
+        }
+
 
         return isSuccess;
     }

@@ -16,6 +16,7 @@ import java.util.Date;
 
 public class FoodDiaryActivity extends Activity {
 
+    DiaryArrayAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +44,7 @@ public class FoodDiaryActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent detailsIntent = new Intent(lv.getContext(), MealDetailsActivity.class);
+                detailsIntent.putExtra("id", id);
                 lv.getContext().startActivity(detailsIntent);
             }
         });
@@ -50,7 +52,7 @@ public class FoodDiaryActivity extends Activity {
 
     private void populateDiaryListView()
     {
-        DiaryArrayAdapter adapter = new DiaryArrayAdapter(this, getTodaysFood());
+        adapter = new DiaryArrayAdapter(this, getTodaysFood());
         ListView lv = (ListView)findViewById(R.id.diaryListView);
         lv.setAdapter(adapter);
     }

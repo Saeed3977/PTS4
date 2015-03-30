@@ -7,23 +7,23 @@ import com.orm.SugarRecord;
  */
 public class Ingredient extends SugarRecord<Meal>
 {
-    private int mealID;
-    private int foodID;
+    private long mealID;
+    private long foodID;
 
     public Ingredient(){};
 
-    public Ingredient(int mealID, int foodID)
+    public Ingredient(long mealID, long foodID)
     {
         this.mealID = mealID;
         this.foodID = foodID;
     }
 
-    public int getMealID()
+    public long getMealID()
     {
         return mealID;
     }
 
-    public int getFoodID()
+    public long getFoodID()
     {
         return foodID;
     }
