@@ -56,21 +56,16 @@ public class DiaryAddEntryActivity extends Activity {
 
     private void populateFoodPicker()
     {
+        if (!loadFoodlist())
+        {
+            items.add("No food in list!");
+        }
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.foodpickerrow, items);
         ListView foodPicker = (ListView)findViewById(R.id.foodPicker);
         foodPicker.setItemsCanFocus(false);
         foodPicker.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         foodPicker.setAdapter(adapter);
-        items.add("Banana");
-        items.add("Butter");
-        items.add("White Bread");
-        items.add("Wholegrain Bread");
-        items.add("Tomato Sauce");
-        items.add("Milk");
-        items.add("Egg");
-        items.add("Cheese");
-        items.add("Pepper");
-        items.add("Salt");
     }
 
     private boolean saveEntry()
@@ -97,5 +92,25 @@ public class DiaryAddEntryActivity extends Activity {
         newEntry.setTime(entryTime);
 
         return isSuccess;
+    }
+
+    /**
+     * Loads the food list from the local database
+     */
+    private boolean loadFoodlist() {
+        List<Food> foods = Food.listAll(Food.class);
+
+        if (foods.size() > 0) {
+
+            items.clear();
+
+            for (Food f : foods) {
+                items.add(f.getName());
+            }
+
+            return true;
+        }
+
+        return false;
     }
 }
