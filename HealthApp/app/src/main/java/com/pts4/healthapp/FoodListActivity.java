@@ -46,8 +46,11 @@ public class FoodListActivity extends Activity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String value = input.getText().toString();
-                        addFood(value);
-                        populateFoodListView();
+
+                        if (value.length() > 0) {
+                            addFood(value);
+                            populateFoodListView();
+                        }
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -84,7 +87,7 @@ public class FoodListActivity extends Activity {
         if (foods.size() > 0) {
 
             items.clear();
-            
+
             for (Food f : foods) {
                 items.add(f.getName());
             }
