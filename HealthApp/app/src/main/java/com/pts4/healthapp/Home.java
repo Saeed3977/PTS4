@@ -24,7 +24,8 @@ public class Home extends Activity {
 
         try
         {
-            List<Profile> p = Profile.listAll(Profile.class); //throws RuntimeError if table Profiles does not exist
+            //throws RuntimeError if there is no profile yet
+            List<Profile> p = Profile.listAll(Profile.class);
             String n = p.get(0).getName();
         }
         catch(Exception ex)

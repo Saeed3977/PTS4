@@ -42,6 +42,10 @@
            <EditText
                android:id="@+id/profileHeightValue"
                style="@style/registerProfileRowEntryField"/>
+
+           <TextView
+               style="@style/registerProfileRowTitle"
+               android:text="cm"/>
        </TableRow>
 
        <TableRow>
@@ -52,6 +56,10 @@
            <EditText
                android:id="@+id/profileWeightValue"
                style="@style/registerProfileRowEntryField"/>
+
+           <TextView
+               style="@style/registerProfileRowTitle"
+               android:text="kg"/>
        </TableRow>
 
        <TableRow>
