@@ -20,6 +20,7 @@
                android:text="@string/name"/>
 
            <EditText
+               android:id="@+id/profileNameValue"
                style="@style/registerProfileRowEntryField"/>
        </TableRow>
 
@@ -29,6 +30,7 @@
                android:text="@string/age"/>
 
            <EditText
+               android:id="@+id/profileAgeValue"
                style="@style/registerProfileRowEntryField"/>
        </TableRow>
 
@@ -38,6 +40,7 @@
                android:text="@string/height"/>
 
            <EditText
+               android:id="@+id/profileHeightValue"
                style="@style/registerProfileRowEntryField"/>
        </TableRow>
 
@@ -47,6 +50,7 @@
                android:text="@string/weight"/>
 
            <EditText
+               android:id="@+id/profileWeightValue"
                style="@style/registerProfileRowEntryField"/>
        </TableRow>
 
@@ -58,10 +62,12 @@
             <RadioGroup
                 android:layout_gravity="end">
                 <RadioButton
+                    android:id="@+id/profileIsMale"
                     style="@style/registerProfileRowRadioButton"
                     android:text="@string/male"/>
 
                 <RadioButton
+                    android:id="@+id/profileIsFemale"
                     style="@style/registerProfileRowRadioButton"
                     android:text="@string/female"/>
             </RadioGroup>
@@ -73,6 +79,7 @@
         android:layout_height="match_parent"
         android:paddingBottom="16dp">
         <Button
+            android:id="@+id/saveProfileButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             style="@style/addEntryButton"

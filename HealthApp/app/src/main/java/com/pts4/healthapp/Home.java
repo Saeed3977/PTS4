@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class Home extends Activity {
@@ -19,7 +20,17 @@ public class Home extends Activity {
         setContentView(R.layout.activity_home);
         setOnClicks();
 
-        
+        try
+        {
+            Profile.listAll(Profile.class); //throws RuntimeError if table Profiles does not exist
+        }
+        catch(Exception ex)
+        {
+            Intent createProfileIntent = new Intent(findViewById(R.id.diaryButton).getContext(), RegisterProfileActivity.class);
+            findViewById(R.id.diaryButton).getContext().startActivity(createProfileIntent);
+        }
+
+
     }
 
     private void setOnClicks()
