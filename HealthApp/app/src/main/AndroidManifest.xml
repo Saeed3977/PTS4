@@ -62,6 +62,14 @@
             android:name=".RegisterProfileActivity"
             android:label="@string/title_activity_register_profile" >
         </activity>
+        <activity
+            android:name=".FoodQuantitiesActivity"
+            android:label="@string/title_activity_food_quantities"
+            android:parentActivityName=".DiaryAddEntryActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pts4.healthapp.DiaryAddEntryActivity" />
+        </activity>
     </application>
 
 </manifest>
