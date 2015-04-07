@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.List;
+
 
 public class Home extends Activity {
 
@@ -22,7 +24,24 @@ public class Home extends Activity {
 
         try
         {
-            Profile.listAll(Profile.class); //throws RuntimeError if table Profiles does not exist
+            List<Profile> p = Profile.listAll(Profile.class); //throws RuntimeError if table Profiles does not exist
+            String n = p.get(0).getName();
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Delete entry")
+                    .setMessage(n)
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // continue with delete
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
         }
         catch(Exception ex)
         {
