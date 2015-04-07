@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/backgroundDark">
+
+    <TextView
+        android:id="@+id/quantityFoodName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12pt"
+        android:layout_margin="5dp"
+        android:text="## FOOD NAME ##"/>
+
+    <EditText
+        android:id="@+id/quantityValue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/quantityFoodName"
+        android:layout_toLeftOf="@+id/weightUnitTitle"/>
+
+    <TextView
+        android:id="@+id/weightUnitTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="12pt"
+        android:text="g"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/quantityFoodName"/>
+</RelativeLayout>
