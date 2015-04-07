@@ -27,24 +27,30 @@ public class RegisterProfileActivity extends Activity {
                         && checkIfNumeric( ((EditText)findViewById(R.id.profileWeightValue)).getText().toString() )
                         && checkIfSexWasSelected())
                 {
-                    Profile newProfile;
-                    String name = ((EditText)findViewById(R.id.profileNameValue)).getText().toString();
-                    int age = Integer.parseInt(((EditText)findViewById(R.id.profileAgeValue)).getText().toString());
-                    int weight = Integer.parseInt(((EditText)findViewById(R.id.profileWeightValue)).getText().toString());
-                    int height = Integer.parseInt(((EditText)findViewById(R.id.profileHeightValue)).getText().toString());
-                    Sex sex = null;
+                    try {
+                        Profile newProfile;
+                        String name = ((EditText) findViewById(R.id.profileNameValue)).getText().toString();
+                        int age = Integer.parseInt(((EditText) findViewById(R.id.profileAgeValue)).getText().toString());
+                        int weight = Integer.parseInt(((EditText) findViewById(R.id.profileWeightValue)).getText().toString());
+                        int height = Integer.parseInt(((EditText) findViewById(R.id.profileHeightValue)).getText().toString());
+                        Sex sex = null;
 
-                    if (((RadioButton)findViewById(R.id.profileIsMale)).isChecked())
-                    {
-                        sex = Sex.MALE;
+                        if (((RadioButton) findViewById(R.id.profileIsMale)).isChecked()) {
+                            sex = Sex.MALE;
+                        } else if (((RadioButton) findViewById(R.id.profileIsFemale)).isChecked()) {
+                            sex = Sex.FEMALE;
+                        }
+
+                        newProfile = new Profile(name, weight, height, age, sex);
+                        newProfile.save();
+
+                        finish();
                     }
-                    else if (((RadioButton)findViewById(R.id.profileIsFemale)).isChecked())
+                    catch(Exception ex)
                     {
-                        sex = Sex.FEMALE;
+                        Toast.makeText(v.getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
                     }
 
-                    newProfile = new Profile(name, weight, height, age, sex);
-                    newProfile.save();
                 }
                 else
                 {
