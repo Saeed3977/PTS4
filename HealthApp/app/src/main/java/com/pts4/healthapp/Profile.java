@@ -11,15 +11,17 @@ public class Profile extends SugarRecord<Profile> {
     private int weight;
     private int height;
     private int age;
+    private Sex sex;
 
     public Profile(){}
 
-    public Profile(String name, int weight, int height, int age)
+    public Profile(String name, int weight, int height, int age, Sex sex)
     {
         this.name = name;
         this.weight = weight;
         this.height = height;
         this.age = age;
+        this.sex = sex;
     }
 
     public String getName()
@@ -40,5 +42,10 @@ public class Profile extends SugarRecord<Profile> {
     public int getAge()
     {
         return age;
+    }
+
+    public Sex getSex()
+    {
+        return sex;
     }
 }
