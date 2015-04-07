@@ -60,5 +60,17 @@ public class Home extends Activity {
                 v.getContext().startActivity(foodListIntent);
             }
         });
+
+        //TEMP
+        View tempButton = findViewById(R.id.TEMPORARYBUTTON);
+        tempButton .setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent tempIntent = new Intent(v.getContext(), FoodQuantitiesActivity.class);
+                v.getContext().startActivity(tempIntent);
+            }
+        });
     }
 }
