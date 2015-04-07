@@ -58,6 +58,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pts4.healthapp.FoodDiaryActivity" />
         </activity>
+        <activity
+            android:name=".RegisterProfileActivity"
+            android:label="@string/title_activity_register_profile" >
+        </activity>
     </application>
 
 </manifest>

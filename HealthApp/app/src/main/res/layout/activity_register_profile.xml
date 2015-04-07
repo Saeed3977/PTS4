@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroundDark"
+    tools:context="com.pts4.healthapp.RegisterProfileActivity">
+
+   <TableLayout
+       android:paddingLeft="16dp"
+       android:paddingRight="16dp"
+       android:paddingTop="16dp"
+       android:paddingBottom="16dp"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:stretchColumns="0,1">
+
+       <TableRow>
+           <TextView
+               style="@style/registerProfileRowTitle"
+               android:text="@string/name"/>
+
+           <EditText
+               style="@style/registerProfileRowEntryField"/>
+       </TableRow>
+
+       <TableRow>
+           <TextView
+               style="@style/registerProfileRowTitle"
+               android:text="@string/age"/>
+
+           <EditText
+               style="@style/registerProfileRowEntryField"/>
+       </TableRow>
+
+       <TableRow>
+           <TextView
+               style="@style/registerProfileRowTitle"
+               android:text="@string/height"/>
+
+           <EditText
+               style="@style/registerProfileRowEntryField"/>
+       </TableRow>
+
+       <TableRow>
+           <TextView
+               style="@style/registerProfileRowTitle"
+               android:text="@string/weight"/>
+
+           <EditText
+               style="@style/registerProfileRowEntryField"/>
+       </TableRow>
+
+       <TableRow>
+           <TextView
+               style="@style/registerProfileRowTitle"
+               android:text="@string/sex"/>
+
+            <RadioGroup
+                android:layout_gravity="end">
+                <RadioButton
+                    style="@style/registerProfileRowRadioButton"
+                    android:text="@string/male"/>
+
+                <RadioButton
+                    style="@style/registerProfileRowRadioButton"
+                    android:text="@string/female"/>
+            </RadioGroup>
+       </TableRow>
+       </TableLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="16dp">
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/addEntryButton"
+            android:text="@string/save"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

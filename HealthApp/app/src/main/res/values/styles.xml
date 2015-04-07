@@ -67,4 +67,21 @@
         <item name="android:layout_height">fill_parent</item>
         <item name="android:textSize">30sp</item>
     </style>
+    
+    <style name="registerProfileRowTitle">
+        <item name="android:textSize">12pt</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="registerProfileRowEntryField">
+        <item name="android:width">200dp</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+    
+    <style name="registerProfileRowRadioButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">10pt</item>
+    </style>
 </resources>

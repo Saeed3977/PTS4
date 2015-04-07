@@ -6,11 +6,22 @@
     <string name="title_activity_food_list">Food List</string>
     <string name="title_activity_diary_add_entry">Add Diary Entry</string>
     <string name="title_activity_meal_details">Meal Details</string>
+    <string name="title_activity_register_profile">Create Profile</string>
 
     <string name="foodDiary">Food Diary</string>
     <string name="foodList">Food List</string>
     <string name="addEntry">Add Entry</string>
     <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="sex">Sex</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
     <string name="time">Time</string>
+    <string name="continueText">Continue</string>
     <string name="ingredients">Ingredients</string>
+    <string name="save">Save</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

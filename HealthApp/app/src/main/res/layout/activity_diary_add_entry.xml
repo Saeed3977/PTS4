@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="3"
         android:background="@color/backgroundLight"
-        android:text="@string/addEntry"
+        android:text="@string/continueText"
         android:layout_marginTop="5dp"/>
 
 </LinearLayout>
