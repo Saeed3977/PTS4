@@ -5,17 +5,14 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -119,7 +116,6 @@ public class DiaryAddEntryActivity extends Activity {
             Ingredient newIngredient = new Ingredient(mealID, x.getId());
             newIngredient.save();
         }
-
 
         return isSuccess;
     }
