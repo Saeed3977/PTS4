@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_below="@+id/quantityFoodName"
+        android:inputType="number"
         android:layout_toLeftOf="@+id/weightUnitTitle"/>
 
     <TextView

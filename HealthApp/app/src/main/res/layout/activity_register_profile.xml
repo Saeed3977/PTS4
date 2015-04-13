@@ -31,6 +31,7 @@
 
            <EditText
                android:id="@+id/profileAgeValue"
+               android:inputType="number"
                style="@style/registerProfileRowEntryField"/>
        </TableRow>
 
@@ -41,6 +42,7 @@
 
            <EditText
                android:id="@+id/profileHeightValue"
+               android:inputType="number"
                style="@style/registerProfileRowEntryField"/>
 
            <TextView
@@ -55,6 +57,7 @@
 
            <EditText
                android:id="@+id/profileWeightValue"
+               android:inputType="number"
                style="@style/registerProfileRowEntryField"/>
 
            <TextView
