@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,8 +35,15 @@ public class FoodDiaryActivity extends Activity {
         addEntryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent newEntryIntent = new Intent(v.getContext(), DiaryAddEntryActivity.class);
-                v.getContext().startActivity(newEntryIntent);
+                if(Food.listAll(Food.class).size() == 0)
+                {
+                    Toast.makeText(v.getContext(), "Please add some foods before adding a new meal entry to your diary.", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    Intent newEntryIntent = new Intent(v.getContext(), DiaryAddEntryActivity.class);
+                    v.getContext().startActivity(newEntryIntent);
+                }
             }
         });
 
@@ -76,7 +84,7 @@ public class FoodDiaryActivity extends Activity {
 
         caloriesBox.setText (calories   + "g");
         proteinBox.setText  (protein    + "g");
-        fatBox.setText      (fat        + "g");
+        fatBox.setText(fat + "g");
     }
 
     private void populateDiaryListView()
