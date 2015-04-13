@@ -21,12 +21,5 @@
             style="@style/menuButton"
             android:text="@string/foodList"
             android:id="@+id/foodListButton"/>
-
-        <Button
-            style="@style/menuButton"
-            android:text="[GO TO FOOD QUANTITY PICKER]"
-            android:id="@+id/TEMPORARYBUTTON"/>
         </LinearLayout>
-
-
 </RelativeLayout>
