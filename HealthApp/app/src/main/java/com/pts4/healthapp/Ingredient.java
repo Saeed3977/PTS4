@@ -42,7 +42,7 @@ public class Ingredient extends SugarRecord<Meal> {
     public Meal getMeal() {
 
         for (Meal m : Meal.listAll(Meal.class)) {
-            if (m.getId() == this.getFoodID()) {
+            if (m.getId() == this.getMealID()) {
                 return m;
             }
         }

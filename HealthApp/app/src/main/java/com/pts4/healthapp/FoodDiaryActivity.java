@@ -69,12 +69,12 @@ public class FoodDiaryActivity extends Activity {
 
         for (Ingredient i : Ingredient.listAll(Ingredient.class)) {
 
-            if (i.getMeal().getEntryDate() == null) continue;
+            // if (i.getMeal().getEntryDate() == null) continue;
 
             if (i.getMeal().getEntryDate().equals(today)) {
-                calories    += i.getFood().getCalories()    * i.getAmount();
-                protein     += i.getFood().getProteins()    * i.getAmount();
-                fat         += i.getFood().getFat()         * i.getAmount();
+                calories    += i.getFood().getCalories()    * i.getAmount() / 100;
+                protein     += i.getFood().getProteins()    * i.getAmount() / 100;
+                fat         += i.getFood().getFat()         * i.getAmount() / 100;
             }
         }
 

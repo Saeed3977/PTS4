@@ -38,7 +38,7 @@ public class Meal extends SugarRecord<Meal> {
     /**
      * Looks up all ingredients of the meal
      *
-     * @return
+     * @return List with all ingredients of the meal
      */
     public List<Ingredient> getIngredients() {
         ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
