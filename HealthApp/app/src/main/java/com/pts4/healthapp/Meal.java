@@ -2,6 +2,7 @@ package com.pts4.healthapp;
 
 import com.orm.SugarRecord;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -13,8 +14,6 @@ import java.util.List;
 public class Meal extends SugarRecord<Meal> {
     private String name;
     private String time;
-    private String weight;
-    private String calories;
     private String entryDate;
 
     public Meal() {
@@ -24,7 +23,10 @@ public class Meal extends SugarRecord<Meal> {
         super();
         this.name = name;
         this.time = time;
-        this.entryDate = new Date().toString();
+        //this.entryDate = new Date().toString();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        this.entryDate = sdf.format(new Date());
     }
 
     public void addIngredient(Food food, int amount) {
