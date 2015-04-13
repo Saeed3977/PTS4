@@ -86,7 +86,6 @@
     </style>
 
     <style name="addFood">
-        <item name="android:layout_margin">5dp</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
@@ -99,7 +98,20 @@
         <item name="android:layout_width">fill_parent</item>
     </style>
 
+    <style name="addFood.Value.Numeric">
+        <item name="android:inputType">number</item>
+    </style>
+
     <style name="addFood.Unit">
 
+    </style>
+
+    <style name="addFood.Row">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/backgroundDark</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:paddingLeft">8pt</item>
+        <item name="android:paddingRight">8pt</item>
     </style>
 </resources>
