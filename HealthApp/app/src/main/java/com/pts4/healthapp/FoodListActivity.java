@@ -21,12 +21,13 @@ import java.util.List;
 
 public class FoodListActivity extends Activity {
 
-    ArrayList<String> items = new ArrayList<String>();
+    ArrayList<Food> items = new ArrayList<Food>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_list);
+        loadFoodlist();
         populateFoodListView();
 
         final Button addEntryButton = (Button)findViewById(R.id.addFoodButton);
@@ -41,13 +42,7 @@ public class FoodListActivity extends Activity {
 
     private void populateFoodListView()
     {
-        if (!loadFoodlist())
-        {
-            items.add("No food in list!");
-        }
-
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        FoodListArrayAdapter adapter = new FoodListArrayAdapter(this, items);
         ListView foodList = (ListView)findViewById(R.id.foodListView);
         foodList.setAdapter(adapter);
     }
@@ -63,7 +58,7 @@ public class FoodListActivity extends Activity {
             items.clear();
 
             for (Food f : foods) {
-                items.add(f.getName());
+                items.add(f);
             }
 
             return true;

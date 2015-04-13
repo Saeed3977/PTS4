@@ -114,4 +114,21 @@
         <item name="android:paddingLeft">8pt</item>
         <item name="android:paddingRight">8pt</item>
     </style>
+
+    <style name="foodListRowTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="foodListRowTextView.title">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:padding">6dp</item>
+    </style>
+
+    <style name="foodListRowTextView.detail">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/darkGrey</item>
+        <item name="android:padding">6dp</item>
+    </style>
 </resources>
