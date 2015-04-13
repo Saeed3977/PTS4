@@ -16,14 +16,18 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 
 public class DiaryAddEntryActivity extends Activity {
 
     ArrayList<String> items = new ArrayList<String>();
-    List<Food> ingredients;
-    List<String> mealFoodsNames;
+    protected static List<Food> ingredients;
+    protected static HashMap<String, Long> mealFoods = new HashMap<>();
+    protected static ArrayList<String> mealFoodsNames;
+    String mealName;
+    Long mealId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +50,13 @@ public class DiaryAddEntryActivity extends Activity {
                 if (((EditText)findViewById(R.id.nameValue)).getText().toString().length() > 0
                         && foodPicker.getCheckedItemCount() > 0) {
 
-                    if (saveEntry(v.getContext())) {
-                        finish();
+                    if (saveEntry()) {
+                        Intent foodQuantityIntent = new Intent(v.getContext(), FoodQuantitiesActivity.class);
+                        foodQuantityIntent.putStringArrayListExtra("ingredientsMeal", (ArrayList<String>)mealFoodsNames);
+                        foodQuantityIntent.putExtra("mealId", mealId);
+                        foodQuantityIntent.putExtra("mealName", mealName);
+                        v.getContext().startActivity(foodQuantityIntent);
+                        //finish();
                     } else {
                         AlertDialog alertDialog = new AlertDialog.Builder(confirmEntryButton.getContext()).create();
                         alertDialog.setMessage("Meal could not be added to diary.");
@@ -76,7 +85,7 @@ public class DiaryAddEntryActivity extends Activity {
         foodPicker.setAdapter(adapter);
     }
 
-    private boolean saveEntry(Context c)
+    private boolean saveEntry()
     {
         boolean isSuccess = true;
 
@@ -101,7 +110,8 @@ public class DiaryAddEntryActivity extends Activity {
 
         List<Meal> allMeals = Meal.listAll(Meal.class);
         Meal lastMeal = allMeals.get(allMeals.size()-1);
-        long mealID = lastMeal.getId();
+        mealId = lastMeal.getId();
+        mealName = lastMeal.getName();
 
         List<Food> allFoods = Food.listAll(Food.class);
         ingredients = new ArrayList<Food>();
@@ -116,23 +126,22 @@ public class DiaryAddEntryActivity extends Activity {
             }
         }
 
-        for(Food x: ingredients)
-        {
-            //TODO: REPLACE 1000 WITH USE RINPUT
-            Ingredient newIngredient = new Ingredient(mealID, x.getId(), 1000);
-            newIngredient.save();
-        }
+//        for(Food x: ingredients)
+//        {
+//            //TODO: REPLACE 1000 WITH USE RINPUT
+//            Ingredient newIngredient = new Ingredient(mealId, x.getId(), 1000);
+//            newIngredient.save();
+//        }
 
         mealFoodsNames = new ArrayList<String>();
 
+
         for(Food food : ingredients)
         {
+            mealFoods.put(food.getName(), food.getId());
             mealFoodsNames.add(food.getName());
         }
-        
-        Intent foodQuantityIntent = new Intent(c, FoodQuantitiesActivity.class);
-        foodQuantityIntent.putStringArrayListExtra("ingredientsMeal", (ArrayList<String>)mealFoodsNames);
-        c.startActivity(foodQuantityIntent);
+
         return isSuccess;
     }
 
