@@ -18,8 +18,6 @@ public class Meal extends SugarRecord<Meal>
     private String calories;
     private String entryDate;
 
-    //private ArrayList<Food> ingredients = new ArrayList<>();
-
     public Meal(){}
 
     public Meal(String name, String time, String weight, String calories)
@@ -31,16 +29,28 @@ public class Meal extends SugarRecord<Meal>
         this.calories = calories;
         this.entryDate = new Date().toString();
     }
-//
-//    public void addFood(Food food)
-//    {
-//        ingredients.add(food);
-//    }
-//
-//    public List<Food> getFood()
-//    {
-//        return Collections.unmodifiableList(ingredients);
-//    }
+
+    public void addIngredient(Food food, int amount)
+    {
+        Ingredient ing = new Ingredient(this, food, amount);
+        ing.save();
+        //ingredients.add(ing);
+    }
+
+    public List<Ingredient> getIngredients()
+    {
+        ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
+
+        for(Ingredient i: Ingredient.listAll(Ingredient.class))
+        {
+            if (i.getMealID() == this.getId())
+            {
+                ingredients.add(i);
+            }
+        }
+
+        return Collections.unmodifiableList(ingredients);
+    }
 
     public String getName()
     {
@@ -52,14 +62,72 @@ public class Meal extends SugarRecord<Meal>
         return time;
     }
 
-    public String getWeight()
+    /***
+     * Calculates the total weight of all ingredients
+     *
+     * @return The total weight of this meal.
+     */
+    public int getWeight()
     {
-        return weight;
+        int result = 0;
+
+        for (Ingredient i : this.getIngredients())
+        {
+            result += i.getAmount();
+        }
+
+        return result;
     }
 
-    public String getCalories()
+    /***
+     * Calculates the total of all calories in this meal
+     *
+     * @return The total of all calories in this meal.
+     */
+    public int getCalories()
     {
-        return calories;
+        int result = 0;
+
+        for (Ingredient i : this.getIngredients())
+        {
+            result += i.getAmount() * i.getFood().getCalories();
+        }
+
+        return result;
+    }
+
+    /***
+     * Calculates the total of all proteins in this meal
+     *
+     * @return The total of all proteins in this meal.
+     */
+    public int getProteins()
+    {
+        int result = 0;
+
+        for (Ingredient i : this.getIngredients())
+        {
+            result += i.getAmount() * i.getFood().getProteins();
+        }
+
+        return result;
+    }
+
+    /***
+     * Calculates the total of all fat in this meal
+     *
+     * @return The total of all fat in this meal.
+     */
+    public int getFat()
+    {
+        int result = 0;
+
+        for (Ingredient i : this.getIngredients())
+        {
+            result += i.getAmount() * i.getFood().getFat();
+        }
+
+        return result;
     }
 
     public String getEntryDate(){

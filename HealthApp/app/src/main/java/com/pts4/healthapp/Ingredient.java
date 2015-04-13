@@ -2,29 +2,84 @@ package com.pts4.healthapp;
 
 import com.orm.SugarRecord;
 
+import java.util.ArrayList;
+
 /**
  * Created by Joep on 30-3-2015.
  */
-public class Ingredient extends SugarRecord<Meal>
-{
+public class Ingredient extends SugarRecord<Meal> {
     private long mealID;
     private long foodID;
+    private long amount;
 
-    public Ingredient(){};
-
-    public Ingredient(long mealID, long foodID)
-    {
-        this.mealID = mealID;
-        this.foodID = foodID;
+    public Ingredient() {
     }
 
-    public long getMealID()
-    {
+    public Ingredient(long mealID, long foodID) {
+        this.mealID = mealID;
+        this.foodID = foodID;
+        this.amount = 1;
+    }
+
+    public Ingredient(long mealID, long foodID, long amount) {
+        this.mealID = mealID;
+        this.foodID = foodID;
+        this.amount = amount;
+    }
+
+    public Ingredient(Meal meal, Food food) {
+        this.mealID = meal.getId();
+        this.foodID = food.getId();
+        this.amount = 1;
+    }
+
+    public Ingredient(Meal meal, Food food, long amount) {
+        this.mealID = meal.getId();
+        this.foodID = food.getId();
+        this.amount = amount;
+    }
+
+    public long getMealID() {
         return mealID;
     }
 
-    public long getFoodID()
-    {
+    public long getFoodID() {
         return foodID;
+    }
+
+    public long getAmount() {
+        return amount;
+    }
+
+    /***
+     * Looks up the actual Meal-object in the database according to the mealID
+     *
+     * @return The meal of the ingredient. null if the meal is not found
+     */
+    public Meal getMeal() {
+
+        for (Meal m : Meal.listAll(Meal.class)) {
+            if (m.getId() == this.getFoodID()) {
+                return m;
+            }
+        }
+
+        return null;
+
+    }
+
+    /***
+     * Looks up the actual Food-object in the database according to the foodID
+     *
+     * @return The food of the ingredient. null if the food is not found
+     */
+    public Food getFood() {
+        for (Food f : Food.listAll(Food.class)) {
+            if (f.getId() == this.getFoodID()) {
+                return f;
+            }
+        }
+
+        return null;
     }
 }
