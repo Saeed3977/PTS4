@@ -60,8 +60,8 @@ public class FoodDiaryActivity extends Activity {
     }
 
     private void refreshDayValues() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        String today = sdf.format(new Date());
+        // SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        // String today = sdf.format(new Date());
 
         int protein     = 0;
         int calories    = 0;
@@ -69,13 +69,13 @@ public class FoodDiaryActivity extends Activity {
 
         for (Ingredient i : Ingredient.listAll(Ingredient.class)) {
 
-            // if (i.getMeal().getEntryDate() == null) continue;
+           // if (i.getMeal().getEntryDate() == null) continue;
 
-            if (i.getMeal().getEntryDate().equals(today)) {
+           // if (i.getMeal().getEntryDate().equals(today)) {
                 calories    += i.getFood().getCalories()    * i.getAmount() / 100;
                 protein     += i.getFood().getProteins()    * i.getAmount() / 100;
                 fat         += i.getFood().getFat()         * i.getAmount() / 100;
-            }
+            //}
         }
 
         TextView caloriesBox = (TextView)findViewById(R.id.totalCalValue);
