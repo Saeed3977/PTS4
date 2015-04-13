@@ -3,6 +3,7 @@ package com.pts4.healthapp;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Menu;
@@ -32,35 +33,8 @@ public class FoodListActivity extends Activity {
         addEntryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(addEntryButton.getContext());
-                builder.setTitle("Food description:");
-
-// Set up the input
-                final EditText input = new EditText(addEntryButton.getContext());
-// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-                input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_NORMAL);
-                builder.setView(input);
-
-// Set up the buttons
-                builder.setPositiveButton("Add to Foodlist", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String value = input.getText().toString();
-
-                        if (value.length() > 0) {
-                            addFood(value);
-                            populateFoodListView();
-                        }
-                    }
-                });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-
-                builder.show();
+                Intent addFoodIntent = new Intent(v.getContext(), AddFoodActivity.class);
+                v.getContext().startActivity(addFoodIntent);
             }
         });
     }
@@ -96,16 +70,5 @@ public class FoodListActivity extends Activity {
         }
 
         return false;
-    }
-
-    /**
-     * Adds a food to the database
-     *
-     * @param name
-     */
-    private void addFood(String name) {
-        Food food = new Food(name);
-        food.save();
-
     }
 }
