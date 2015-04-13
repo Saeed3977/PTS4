@@ -84,7 +84,7 @@ public class FoodDiaryActivity extends Activity {
 
         caloriesBox.setText (calories   + "g");
         proteinBox.setText  (protein    + "g");
-        fatBox.setText(fat + "g");
+        fatBox.setText      (fat        + "g");
     }
 
     private void populateDiaryListView()
