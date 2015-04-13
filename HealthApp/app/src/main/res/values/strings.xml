@@ -24,6 +24,10 @@
     <string name="continueText">Continue</string>
     <string name="ingredients">Ingredients</string>
     <string name="save">Save</string>
+    <string name="description">Description</string>
+    <string name="caloriesPer">Calories (per 100g)</string>
+    <string name="proteinPer">Protein (per 100g)</string>
+    <string name="fatPer">Fat (per 100g)</string>
 
     <string name="hello_world">Hello world!</string>
 
