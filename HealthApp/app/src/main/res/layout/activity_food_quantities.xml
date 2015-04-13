@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.pts4.healthapp.FoodQuantitiesActivity"
@@ -17,7 +17,9 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quantityMealName"
+        android:layout_above="@+id/quantityAddEntry">
 
         <TextView
             android:id="@+id/enterIngredientQuantitiesTitle"
@@ -36,7 +38,19 @@
             android:dividerHeight="5dp"
             android:divider="@android:color/transparent"
             android:layout_alignParentBottom="true"
-            android:layout_below="@+id/enterIngredientQuantitiesTitle"></ListView>
-        </RelativeLayout>
+            android:layout_below="@+id/enterIngredientQuantitiesTitle">
+            </ListView>
+    </RelativeLayout>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/quantityAddEntry"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="@string/addEntry"
+        android:background="@color/backgroundLight"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"/>
+
+</RelativeLayout>
