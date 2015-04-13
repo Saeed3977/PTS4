@@ -113,7 +113,7 @@ public class DiaryAddEntryActivity extends Activity {
 
         for(Food x: ingredients)
         {
-            //TODO: REPLACE 1000 WITH USER INPUT
+            //TODO: REPLACE 1000 WITH USE RINPUT
             Ingredient newIngredient = new Ingredient(mealID, x.getId(), 1000);
             newIngredient.save();
         }

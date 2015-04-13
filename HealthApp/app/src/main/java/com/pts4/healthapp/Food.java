@@ -21,6 +21,14 @@ public class Food extends SugarRecord<Food> {
         this.name = name;
     }
 
+    public Food(String name, int proteins, int calories, int fat)
+    {
+        this.name = name;
+        this.proteins = proteins;
+        this.calories = calories;
+        this.fat = fat;
+    }
+
     public void setProteins(int proteins) {
         this.proteins = proteins;
     }
