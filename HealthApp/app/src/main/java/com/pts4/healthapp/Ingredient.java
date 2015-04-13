@@ -10,12 +10,12 @@ import java.util.ArrayList;
 public class Ingredient extends SugarRecord<Meal> {
     private long mealID;
     private long foodID;
-    private long amount;
+    private int amount;
 
     public Ingredient() {
     }
 
-    public Ingredient(long mealID, long foodID, long amount) {
+    public Ingredient(long mealID, long foodID, int amount) {
         this.mealID = mealID;
         this.foodID = foodID;
         this.amount = amount;
