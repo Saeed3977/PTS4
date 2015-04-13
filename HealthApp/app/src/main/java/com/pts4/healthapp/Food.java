@@ -48,5 +48,4 @@ public class Food extends SugarRecord<Food> {
     public int getFat() {
         return fat;
     }
-
 }
