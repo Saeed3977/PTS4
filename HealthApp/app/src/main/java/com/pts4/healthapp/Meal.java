@@ -144,6 +144,16 @@ public class Meal extends SugarRecord<Meal>
         this.time = time;
     }
 
+    public void setWeight(String weight)
+    {
+        this.weight = weight;
+    }
+
+    public void setCalories(String calories)
+    {
+        this.calories = calories;
+    }
+
 //    public void setIngredients(ArrayList<Food> ingredients)
 //    {
 //        this.ingredients = ingredients;

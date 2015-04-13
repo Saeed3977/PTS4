@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,39 +7,34 @@
     android:background="@color/backgroundDark"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
         <Button
             android:id="@+id/addEntryButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
             android:gravity="center"
             style="@style/addEntryButton"
             android:text="@string/addEntry"/>
-        </LinearLayout>
 
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_below="@+id/addEntryButton"
+        android:layout_above="@+id/diaryTotals"
         android:id="@+id/diaryListView"
         android:divider="@color/backgroundLight"
         android:dividerHeight="1dp"></ListView>
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/diaryTotals"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:layout_weight="2.5"
-        android:gravity="bottom"
+        android:layout_alignParentBottom="true"
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/diaryTotalCaloriesRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
@@ -55,8 +50,10 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/diaryTotalFatRow"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/diaryTotalCaloriesRow">
 
             <TextView
                 android:id="@+id/totalFatTitle"
@@ -70,8 +67,10 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/diaryTotalProteinRow"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/diaryTotalFatRow">
 
             <TextView
                 android:id="@+id/totalProteinTitle"
@@ -83,5 +82,5 @@
                 style="@style/diaryTotalTextView.value"
                 android:text="0000g"/>
         </RelativeLayout>
-    </LinearLayout>
-</LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

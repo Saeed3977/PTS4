@@ -65,7 +65,8 @@
         <activity
             android:name=".FoodQuantitiesActivity"
             android:label="@string/title_activity_food_quantities"
-            android:parentActivityName=".DiaryAddEntryActivity" >
+            android:parentActivityName=".DiaryAddEntryActivity"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pts4.healthapp.DiaryAddEntryActivity" />
