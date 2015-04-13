@@ -56,14 +56,14 @@ public class Meal extends SugarRecord<Meal> {
      *
      * @return The total weight of this meal.
      */
-    public int getWeight() {
+    public String getWeight() {
         int result = 0;
 
         for (Ingredient i : this.getIngredients()) {
             result += i.getAmount();
         }
 
-        return result;
+        return String.valueOf(result);
     }
 
     /**
@@ -71,14 +71,14 @@ public class Meal extends SugarRecord<Meal> {
      *
      * @return The total of all calories in this meal.
      */
-    public int getCalories() {
+    public String getCalories() {
         int result = 0;
 
         for (Ingredient i : this.getIngredients()) {
             result += i.getAmount() * i.getFood().getCalories();
         }
 
-        return result;
+        return String.valueOf(result);
     }
 
     /**
