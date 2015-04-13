@@ -23,6 +23,7 @@ public class FoodDiaryActivity extends Activity {
         setContentView(R.layout.activity_food_diary);
 
         populateDiaryListView();
+        refreshDayValues();
 
         //Set today's date in title
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
@@ -48,6 +49,34 @@ public class FoodDiaryActivity extends Activity {
                 lv.getContext().startActivity(detailsIntent);
             }
         });
+    }
+
+    private void refreshDayValues() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String today = sdf.format(new Date());
+
+        int protein     = 0;
+        int calories    = 0;
+        int fat         = 0;
+
+        for (Ingredient i : Ingredient.listAll(Ingredient.class)) {
+
+            if (i.getMeal().getEntryDate() == null) continue;
+
+            if (i.getMeal().getEntryDate().equals(today)) {
+                calories    += i.getFood().getCalories()    * i.getAmount();
+                protein     += i.getFood().getProteins()    * i.getAmount();
+                fat         += i.getFood().getFat()         * i.getAmount();
+            }
+        }
+
+        TextView caloriesBox = (TextView)findViewById(R.id.totalCalValue);
+        TextView proteinBox = (TextView)findViewById(R.id.totalProteinValue);
+        TextView fatBox = (TextView)findViewById(R.id.totalFatValue);
+
+        caloriesBox.setText (calories   + "g");
+        proteinBox.setText  (protein    + "g");
+        fatBox.setText      (fat        + "g");
     }
 
     private void populateDiaryListView()
