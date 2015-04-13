@@ -3,6 +3,7 @@ package com.pts4.healthapp;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.view.View;
@@ -20,6 +21,8 @@ import java.util.List;
 public class DiaryAddEntryActivity extends Activity {
 
     ArrayList<String> items = new ArrayList<String>();
+    List<Food> ingredients;
+    List<String> mealFoodsNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class DiaryAddEntryActivity extends Activity {
         timeField.setText(sdf.format(new Date()));
 
         populateFoodPicker();
+
 
         final Button confirmEntryButton = (Button)findViewById(R.id.confirmEntryButton);
         confirmEntryButton.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +103,7 @@ public class DiaryAddEntryActivity extends Activity {
         long mealID = lastMeal.getId();
 
         List<Food> allFoods = Food.listAll(Food.class);
-        List<Food> ingredients = new ArrayList<Food>();
+        ingredients = new ArrayList<Food>();
         for(Food f: allFoods)
         {
             for (Food f2: foods)
@@ -118,6 +122,15 @@ public class DiaryAddEntryActivity extends Activity {
             newIngredient.save();
         }
 
+        mealFoodsNames = new ArrayList<String>();
+
+        for(Food food : ingredients)
+        {
+            mealFoodsNames.add(food.getName());
+        }
+        
+        Intent intent = getIntent();
+        intent.putStringArrayListExtra("ingredientsMeal", (ArrayList<String>)mealFoodsNames);
         return isSuccess;
     }
 

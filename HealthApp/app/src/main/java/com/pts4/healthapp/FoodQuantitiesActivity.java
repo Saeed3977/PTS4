@@ -29,12 +29,8 @@ public class FoodQuantitiesActivity extends Activity {
 
     private boolean populateFoodList()
     {
-        ArrayList<String> testItems = new ArrayList<>();
-        testItems.add("Brood");
-        testItems.add("Kaas");
-        testItems.add("Boter");
-
-        QuantityPickerArrayAdapter adapter = new QuantityPickerArrayAdapter(this, testItems);
+        ArrayList<String> MealIngredients = this.getIntent().getStringArrayListExtra("ingredientsMeal");
+        QuantityPickerArrayAdapter adapter = new QuantityPickerArrayAdapter(this, MealIngredients);
         lv.setAdapter(adapter);
 
         return true;
