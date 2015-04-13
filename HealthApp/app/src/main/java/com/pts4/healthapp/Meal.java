@@ -28,7 +28,7 @@ public class Meal extends SugarRecord<Meal> {
     }
 
     public void addIngredient(Food food, int amount) {
-        Ingredient ing = new Ingredient(this, food, amount);
+        Ingredient ing = new Ingredient(this.getId(), food.getId(), amount);
         ing.save();
         //ingredients.add(ing);
     }

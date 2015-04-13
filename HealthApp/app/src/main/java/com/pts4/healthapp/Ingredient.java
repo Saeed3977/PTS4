@@ -15,29 +15,12 @@ public class Ingredient extends SugarRecord<Meal> {
     public Ingredient() {
     }
 
-    public Ingredient(long mealID, long foodID) {
-        this.mealID = mealID;
-        this.foodID = foodID;
-        this.amount = 1;
-    }
-
     public Ingredient(long mealID, long foodID, long amount) {
         this.mealID = mealID;
         this.foodID = foodID;
         this.amount = amount;
     }
 
-    public Ingredient(Meal meal, Food food) {
-        this.mealID = meal.getId();
-        this.foodID = food.getId();
-        this.amount = 1;
-    }
-
-    public Ingredient(Meal meal, Food food, long amount) {
-        this.mealID = meal.getId();
-        this.foodID = food.getId();
-        this.amount = amount;
-    }
 
     public long getMealID() {
         return mealID;
