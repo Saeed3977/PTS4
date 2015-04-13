@@ -2,6 +2,7 @@ package com.pts4.healthapp;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,7 +46,7 @@ public class DiaryAddEntryActivity extends Activity {
                 if (((EditText)findViewById(R.id.nameValue)).getText().toString().length() > 0
                         && foodPicker.getCheckedItemCount() > 0) {
 
-                    if (saveEntry()) {
+                    if (saveEntry(v.getContext())) {
                         finish();
                     } else {
                         AlertDialog alertDialog = new AlertDialog.Builder(confirmEntryButton.getContext()).create();
@@ -75,7 +76,7 @@ public class DiaryAddEntryActivity extends Activity {
         foodPicker.setAdapter(adapter);
     }
 
-    private boolean saveEntry()
+    private boolean saveEntry(Context c)
     {
         boolean isSuccess = true;
 
@@ -129,8 +130,9 @@ public class DiaryAddEntryActivity extends Activity {
             mealFoodsNames.add(food.getName());
         }
         
-        Intent intent = getIntent();
-        intent.putStringArrayListExtra("ingredientsMeal", (ArrayList<String>)mealFoodsNames);
+        Intent foodQuantityIntent = new Intent(c, FoodQuantitiesActivity.class);
+        foodQuantityIntent.putStringArrayListExtra("ingredientsMeal", (ArrayList<String>)mealFoodsNames);
+        c.startActivity(foodQuantityIntent);
         return isSuccess;
     }
 
