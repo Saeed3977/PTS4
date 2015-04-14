@@ -60,5 +60,16 @@ public class Home extends Activity {
                 v.getContext().startActivity(foodListIntent);
             }
         });
+
+        View bodyStatsButton = findViewById(R.id.bodyStatsButton);
+        bodyStatsButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent bodyStatsIntent = new Intent(v.getContext(), BodyStatsActivity.class);
+                v.getContext().startActivity(bodyStatsIntent);
+            }
+        });
     }
 }

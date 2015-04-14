@@ -30,6 +30,7 @@
     <string name="proteinPer">Protein (per 100g)</string>
     <string name="fatPer">Fat (per 100g)</string>
     <string name="saveFood">Save Food</string>
+    <string name="bodystatistics">Body Statistics</string>
 
     <string name="hello_world">Hello world!</string>
 </resources>
