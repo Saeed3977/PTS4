@@ -7,13 +7,35 @@
     android:background="@color/backgroundDark"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:id="@+id/diaryChangeDayRow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <Button
-            android:id="@+id/addEntryButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            style="@style/addEntryButton"
-            android:text="@string/addEntry"/>
+            android:id="@+id/diaryChangeDayPrevious"
+            style="@style/diaryChangeDayButton"
+            android:text="dd-mm-yyyy"
+            android:layout_marginRight="2.5dp"
+         />
+
+        <Button
+            android:id="@+id/diaryChangeDayNext"
+            style="@style/diaryChangeDayButton"
+            android:text="dd-mm-yyyy"
+            android:layout_marginLeft="2.5dp"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/addEntryButton"
+        android:layout_below="@+id/diaryChangeDayRow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        style="@style/addEntryButton"
+        android:text="@string/addEntry"/>
 
     <ListView
         android:layout_width="fill_parent"

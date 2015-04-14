@@ -131,4 +131,12 @@
         <item name="android:textColor">@color/darkGrey</item>
         <item name="android:padding">6dp</item>
     </style>
+
+    <style name="diaryChangeDayButton">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/backgroundLight</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
 </resources>
