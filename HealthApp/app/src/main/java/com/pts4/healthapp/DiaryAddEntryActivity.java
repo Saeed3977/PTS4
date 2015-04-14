@@ -28,13 +28,14 @@ public class DiaryAddEntryActivity extends Activity {
     protected static ArrayList<String> mealFoodsNames;
     String mealName;
     Long mealId;
+    SimpleDateFormat sdf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_add_entry);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        sdf = new SimpleDateFormat("dd-MM-yyyy");
         TextView timeField = (TextView)findViewById(R.id.timeValue);
         timeField.setText(sdf.format(new Date()));
 
@@ -104,6 +105,7 @@ public class DiaryAddEntryActivity extends Activity {
 
         Meal newEntry = new Meal();
         newEntry.setName(((EditText)findViewById(R.id.nameValue)).getText().toString());
+        newEntry.setEntryDate(sdf.format(new Date()));
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         newEntry.setTime(sdf.format(new Date()));
         newEntry.save();
