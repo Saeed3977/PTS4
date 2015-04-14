@@ -1,6 +1,7 @@
 package com.pts4.healthapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,11 +27,17 @@ public class FoodQuantitiesActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_quantities);
         getValuesFromIntent();
+        TextView title = (TextView)findViewById(R.id.quantityMealName);
+        title.setText(mealName);
         final Button submitQuantitiesButton = (Button)findViewById(R.id.quantityAddEntry);
         submitQuantitiesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addIngredient();
+                //Return to diary
+                Intent diaryIntent = new Intent(v.getContext(), FoodDiaryActivity.class);
+                diaryIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                v.getContext().startActivity(diaryIntent);
             }
         });
 

@@ -40,7 +40,8 @@ public class DiaryArrayAdapter extends ArrayAdapter<Meal> {
         nameView.setText(entries.get(position).getName());
         timeView.setText(entries.get(position).getTime());
         weightView.setText(entries.get(position).getWeight() + "g");
-        caloriesView.setText(entries.get(position).getCalories() + " calories");
+        //TODO: fix below
+        caloriesView.setText(String.valueOf(Integer.valueOf(entries.get(position).getCalories())/100) + " calories");
 
         return rowView;
     }
