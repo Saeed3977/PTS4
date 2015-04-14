@@ -4,4 +4,36 @@
     android:background="@color/backgroundDark"
     tools:context="com.pts4.healthapp.BodyStatsActivity">
 
+    <LinearLayout
+        android:id="@+id/bodyStatsBMIRow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/bodyStatsBMITitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Your BMI"
+            android:textSize="12pt"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/bodyStatsBMIValue"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="( ͡° ͜ʖ ͡°)"
+            android:textSize="30pt"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/bodyStatsBMIBodyType"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Lenny"
+            android:textSize="12pt"
+            android:gravity="center"/>
+    </LinearLayout>
+
 </RelativeLayout>

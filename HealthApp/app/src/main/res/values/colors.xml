@@ -4,4 +4,9 @@
     <color name="backgroundDark">#006633</color>
     <color name="black">#000000</color>
     <color name="darkGrey">#a7000000</color>
+
+    <color name="bmiUnderweight">#ffe5e004</color>
+    <color name="bmiNormal">#ff01e501</color>
+    <color name="bmiOverweight">#ffff942a</color>
+    <color name="bmiObesity">#ffe50006</color>
 </resources>
