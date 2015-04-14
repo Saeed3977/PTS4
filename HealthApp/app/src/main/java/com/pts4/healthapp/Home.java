@@ -34,7 +34,6 @@ public class Home extends Activity {
             findViewById(R.id.diaryButton).getContext().startActivity(createProfileIntent);
         }
 
-
     }
 
     private void setOnClicks()
