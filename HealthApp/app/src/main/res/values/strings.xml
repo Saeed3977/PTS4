@@ -9,6 +9,7 @@
     <string name="title_activity_register_profile">Create Profile</string>
     <string name="title_activity_food_quantities">Enter ingredient quantities</string>
     <string name="title_activity_add_food">Add Food</string>
+    <string name="title_activity_body_stats">Body Statistics</string>
 
     <string name="foodDiary">Food Diary</string>
     <string name="foodList">Food List</string>
@@ -29,7 +30,15 @@
     <string name="proteinPer">Protein (per 100g)</string>
     <string name="fatPer">Fat (per 100g)</string>
     <string name="saveFood">Save Food</string>
+    <string name="bodystatistics">Body Statistics</string>
+    <string name="activityLevel">Activity\nLevel</string>
+    <string name="sedentary">Sedentary</string>
+    <string name="lightlyActive">Lightly Active</string>
+    <string name="moderatelyActive">Moderately Active</string>
+    <string name="veryActive">Very Active</string>
+    <string name="extremelyActive">Extremely Active</string>
+    <string name="pin">PIN</string>
+    <string name="confirmPin">Confirm\nPIN</string>
 
     <string name="hello_world">Hello world!</string>
-
 </resources>
