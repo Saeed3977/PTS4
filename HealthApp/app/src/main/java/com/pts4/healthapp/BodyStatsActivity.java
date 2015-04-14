@@ -10,20 +10,26 @@ import android.widget.Toast;
 
 
 public class BodyStatsActivity extends Activity {
-    Context c;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_stats);
 
+        displayBMI();
+    }
+
+    private void displayBMI()
+    {
         TextView bmiValue = (TextView)findViewById(R.id.bodyStatsBMIValue);
         TextView bmiBodyType = (TextView)findViewById(R.id.bodyStatsBMIBodyType);
-        c=bmiBodyType.getContext();
+
         double bmiResult = calculateBMI();
 
         if (bmiResult == -1)
         {
             Toast.makeText(bmiValue.getContext(), "Body Statistics calculation failed. Please contact a developer.", Toast.LENGTH_LONG).show();
+            finish();
         }
         else
         {
@@ -42,7 +48,7 @@ public class BodyStatsActivity extends Activity {
             else if (bmiResult < 30)
             {
                 bodyType = "Overweight";
-               bmiColor = getResources().getColor(R.color.bmiOverweight);
+                bmiColor = getResources().getColor(R.color.bmiOverweight);
             }
             else if (bmiResult >= 30)
             {
@@ -56,7 +62,6 @@ public class BodyStatsActivity extends Activity {
             bmiBodyType.setTextColor(bmiColor);
         }
     }
-
     private double calculateBMI()
     {
         double result = -1;
@@ -69,9 +74,6 @@ public class BodyStatsActivity extends Activity {
             myWeight = Profile.listAll(Profile.class).get(0).getWeight();
             myHeight = Profile.listAll(Profile.class).get(0).getHeight();
             myHeightInMeters = myHeight/100;
-
-            Toast.makeText(c, "Weight: " + myWeight + " Height: " + myHeight, Toast.LENGTH_LONG).show();
-
             result = (myWeight/(myHeightInMeters*myHeightInMeters));
         }
         catch (Exception ex)
