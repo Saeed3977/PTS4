@@ -36,4 +36,65 @@
             android:gravity="center"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/bodyStatsCaloriesRow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/bodyStatsBMIRow"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/bodyStatsCaloriesTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Daily required calories"
+            android:textSize="12pt"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/bodyStatsCaloriesValue"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="( ͡° ͜ʖ ͡°)"
+            android:textSize="30pt"
+            android:gravity="center"/>
+
+        <TextView
+            style="@style/registerProfileRowTitle"
+            android:text="@string/activityLevel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+        <RadioGroup
+            android:layout_gravity="start"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/activityLevelSedentary"
+                style="@style/registerProfileRowRadioButtonSmall"
+                android:text="@string/sedentary"/>
+
+            <RadioButton
+                android:id="@+id/activityLevelLightlyActive"
+                style="@style/registerProfileRowRadioButtonSmall"
+                android:text="@string/lightlyActive"/>
+
+            <RadioButton
+                android:id="@+id/activityLevelModeratelyActive"
+                style="@style/registerProfileRowRadioButtonSmall"
+                android:text="@string/moderatelyActive"/>
+
+            <RadioButton
+                android:id="@+id/activityLevelVeryActive"
+                style="@style/registerProfileRowRadioButtonSmall"
+                android:text="@string/veryActive"/>
+
+            <RadioButton
+                android:id="@+id/activityLevelExtremelyActive"
+                style="@style/registerProfileRowRadioButtonSmall"
+                android:text="@string/extremelyActive"/>
+        </RadioGroup>
+    </LinearLayout>
+
 </RelativeLayout>

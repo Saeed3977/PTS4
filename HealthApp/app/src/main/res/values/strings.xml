@@ -31,6 +31,14 @@
     <string name="fatPer">Fat (per 100g)</string>
     <string name="saveFood">Save Food</string>
     <string name="bodystatistics">Body Statistics</string>
+    <string name="activityLevel">Activity\nLevel</string>
+    <string name="sedentary">Sedentary</string>
+    <string name="lightlyActive">Lightly Active</string>
+    <string name="moderatelyActive">Moderately Active</string>
+    <string name="veryActive">Very Active</string>
+    <string name="extremelyActive">Extremely Active</string>
+    <string name="pin">PIN</string>
+    <string name="confirmPin">Confirm\nPIN</string>
 
     <string name="hello_world">Hello world!</string>
 </resources>
