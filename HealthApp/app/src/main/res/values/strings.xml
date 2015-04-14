@@ -9,6 +9,7 @@
     <string name="title_activity_register_profile">Create Profile</string>
     <string name="title_activity_food_quantities">Enter ingredient quantities</string>
     <string name="title_activity_add_food">Add Food</string>
+    <string name="title_activity_body_stats">Body Statistics</string>
 
     <string name="foodDiary">Food Diary</string>
     <string name="foodList">Food List</string>
@@ -31,5 +32,4 @@
     <string name="saveFood">Save Food</string>
 
     <string name="hello_world">Hello world!</string>
-
 </resources>

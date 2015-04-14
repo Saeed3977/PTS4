@@ -24,10 +24,12 @@
             android:name=".Home"
             android:exported="true"
             android:label="@string/title_activity_home" >
-
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" > </action>
-                <category android:name="android.intent.category.LAUNCHER"> </category>
+                <action android:name="android.intent.action.MAIN" >
+                </action>
+
+                <category android:name="android.intent.category.LAUNCHER" >
+                </category>
             </intent-filter>
         </activity>
         <activity
@@ -83,6 +85,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pts4.healthapp.FoodListActivity" />
+        </activity>
+        <activity
+            android:name=".BodyStatsActivity"
+            android:label="@string/title_activity_body_stats"
+            android:parentActivityName=".Home" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pts4.healthapp.Home" />
         </activity>
     </application>
 
