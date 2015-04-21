@@ -48,7 +48,7 @@ public class RegisterProfileActivity extends Activity {
                         String passcodeConfirm = ((EditText)findViewById(R.id.profileConfirmPinValue)).getText().toString();
 
 
-                        if (passcode != null && passcode.equals("") == false || passcodeConfirm != null && passcodeConfirm.equals("") == false) {
+                        if (passcode != null || passcode.equals("") || passcodeConfirm != null || passcodeConfirm.equals("")) {
 
                             // Throw an exception if the passcodes do not match
                             if (passcode.equals(passcodeConfirm) == false) throw new Exception("Passcodes do not match");
