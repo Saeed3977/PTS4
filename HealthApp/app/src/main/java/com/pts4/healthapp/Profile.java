@@ -17,7 +17,7 @@ public class Profile extends SugarRecord<Profile> {
 
     private String passcode;
     private String salt;
-    private ActivityLevel activityLevel;
+    public ActivityLevel activityLevel;
 
     public Profile() {
     }
@@ -49,11 +49,6 @@ public class Profile extends SugarRecord<Profile> {
 
     public Sex getSex() {
         return sex;
-    }
-
-    public ActivityLevel getActivityLevel()
-    {
-        return activityLevel;
     }
 
     /**

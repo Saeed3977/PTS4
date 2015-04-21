@@ -5,6 +5,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,70 @@ public class BodyStatsActivity extends Activity {
 
         displayBMI();
         displayBMR();
+
+        RadioGroup rButtons = (RadioGroup)findViewById(R.id.activityLevelGroup);
+        rButtons.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                ActivityLevel selectedActivityLevel = null;
+                int radioButtonID = group.getCheckedRadioButtonId();
+                View radioButton = group.findViewById(radioButtonID);
+                int selectedIndex = group.indexOfChild(radioButton);
+                switch (selectedIndex)
+                {
+                    case 0:
+                        selectedActivityLevel = ActivityLevel.SEDENTARY;
+                        break;
+                    case 1:
+                        selectedActivityLevel = ActivityLevel.LIGHTLYACTIVE;
+                        break;
+                    case 2:
+                        selectedActivityLevel = ActivityLevel.MODERATELYACTIVE;
+                        break;
+                    case 3:
+                        selectedActivityLevel = ActivityLevel.VERYACTIVE;
+                        break;
+                    case 4:
+                        selectedActivityLevel = ActivityLevel.EXTREMELYACTIVE;
+                        break;
+                }
+
+                if (selectedActivityLevel != null)
+                {
+                    Profile myProfile = Profile.listAll(Profile.class).get(0);
+                    myProfile.activityLevel = selectedActivityLevel;
+                    myProfile.save();
+                    displayBMR();
+                }
+
+            }
+        });
+    }
+
+    private void displaySavedActivityLevel()
+    {
+        Profile myProfile = Profile.listAll(Profile.class).get(0);
+        ActivityLevel myActivityLevel = myProfile.activityLevel;
+        RadioGroup rButtons = (RadioGroup)findViewById(R.id.activityLevelGroup);
+
+        switch (myActivityLevel)
+        {
+            case SEDENTARY:
+                rButtons.check(R.id.activityLevelSedentary);
+                break;
+            case LIGHTLYACTIVE:
+                rButtons.check(R.id.activityLevelLightlyActive);
+                break;
+            case MODERATELYACTIVE:
+                rButtons.check(R.id.activityLevelModeratelyActive);
+                break;
+            case VERYACTIVE:
+                rButtons.check(R.id.activityLevelVeryActive);
+                break;
+            case EXTREMELYACTIVE:
+                rButtons.check(R.id.activityLevelExtremelyActive);
+                break;
+        }
     }
 
     private void displayBMR()
@@ -35,6 +101,8 @@ public class BodyStatsActivity extends Activity {
         {
             bmrValue.setText(String.valueOf(bmrResult));
         }
+
+        displaySavedActivityLevel();
     }
 
     private void displayBMI()
@@ -114,11 +182,12 @@ public class BodyStatsActivity extends Activity {
 
         try
         {
-            myWeight = Profile.listAll(Profile.class).get(0).getWeight();
-            myHeight = Profile.listAll(Profile.class).get(0).getHeight();
-            mySex = Profile.listAll(Profile.class).get(0).getSex();
-            myAge = Profile.listAll(Profile.class).get(0).getAge();
-            myActivityLevel = Profile.listAll(Profile.class).get(0).getActivityLevel();
+            Profile myProfile = Profile.listAll(Profile.class).get(0);
+            myWeight = myProfile.getWeight();
+            myHeight = myProfile.getHeight();
+            mySex = myProfile.getSex();
+            myAge = myProfile.getAge();
+            myActivityLevel = myProfile.activityLevel;
 
             double activityFactor = 0;
 
