@@ -105,10 +105,12 @@ public class BodyStatsActivity extends Activity {
     private int calculateBMR()
     {
         int result = -1;
+        double subTotal = 0;
         int myWeight;
         double myHeight;
         int myAge;
         Sex mySex;
+        ActivityLevel myActivityLevel;
 
         try
         {
@@ -116,16 +118,39 @@ public class BodyStatsActivity extends Activity {
             myHeight = Profile.listAll(Profile.class).get(0).getHeight();
             mySex = Profile.listAll(Profile.class).get(0).getSex();
             myAge = Profile.listAll(Profile.class).get(0).getAge();
+            myActivityLevel = Profile.listAll(Profile.class).get(0).getActivityLevel();
+
+            double activityFactor = 0;
+
+            switch (myActivityLevel)
+            {
+                case SEDENTARY:
+                    activityFactor = 1.2;
+                    break;
+                case LIGHTLYACTIVE:
+                    activityFactor = 1.375;
+                    break;
+                case MODERATELYACTIVE:
+                    activityFactor = 1.55;
+                    break;
+                case VERYACTIVE:
+                    activityFactor = 1.725;
+                    break;
+                case EXTREMELYACTIVE:
+                    activityFactor = 1.9;
+                    break;
+            }
 
             switch (mySex)
             {
                 case MALE:
-                    result = 66 + (int)(13.7 * myWeight) + (int)(5 * myHeight) - (int)(6.8 * myAge);
+                    subTotal = 66 + (13.7 * myWeight) + (5 * myHeight) - (6.8 * myAge);
                     break;
                 case FEMALE:
-                    result = 655 + (int)(9.6 * myWeight) + (int)(1.8 * myHeight) - (int)(4.7 * myAge);
+                    subTotal = 655 + (9.6 * myWeight) + (1.8 * myHeight) - (4.7 * myAge);
                     break;
             }
+            result = (int)(subTotal * activityFactor);
         }
         catch (Exception ex)
         {
