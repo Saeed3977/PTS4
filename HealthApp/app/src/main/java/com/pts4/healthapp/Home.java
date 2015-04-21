@@ -22,18 +22,6 @@ public class Home extends Activity {
         setContentView(R.layout.activity_home);
         setOnClicks();
 
-        try
-        {
-            //throws RuntimeError if there is no profile yet
-            List<Profile> p = Profile.listAll(Profile.class);
-            String n = p.get(0).getName();
-        }
-        catch(Exception ex)
-        {
-            Intent createProfileIntent = new Intent(findViewById(R.id.diaryButton).getContext(), RegisterProfileActivity.class);
-            findViewById(R.id.diaryButton).getContext().startActivity(createProfileIntent);
-        }
-
     }
 
     private void setOnClicks()

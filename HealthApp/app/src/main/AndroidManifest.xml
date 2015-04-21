@@ -24,13 +24,6 @@
             android:name=".Home"
             android:exported="true"
             android:label="@string/title_activity_home" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" >
-                </action>
-
-                <category android:name="android.intent.category.LAUNCHER" >
-                </category>
-            </intent-filter>
         </activity>
         <activity
             android:name=".FoodDiaryActivity"
@@ -96,7 +89,15 @@
         </activity>
         <activity
             android:name=".PinActivity"
-            android:label="@string/title_activity_pin" >
+            android:label="@string/title_activity_pin"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" >
+                </action>
+                <category android:name="android.intent.category.LAUNCHER" >
+                </category>
+            </intent-filter>
         </activity>
     </application>
 
