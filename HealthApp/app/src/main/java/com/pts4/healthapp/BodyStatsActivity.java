@@ -17,6 +17,24 @@ public class BodyStatsActivity extends Activity {
         setContentView(R.layout.activity_body_stats);
 
         displayBMI();
+        displayBMR();
+    }
+
+    private void displayBMR()
+    {
+        TextView bmrValue = (TextView)findViewById(R.id.bodyStatsCaloriesValue);
+
+        int bmrResult = calculateBMR();
+
+        if (bmrResult == -1)
+        {
+            Toast.makeText(bmrValue.getContext(), "BMR calculation failed. Please contact a developer.", Toast.LENGTH_LONG).show();
+            finish();
+        }
+        else
+        {
+            bmrValue.setText(String.valueOf(bmrResult));
+        }
     }
 
     private void displayBMI()
@@ -28,7 +46,7 @@ public class BodyStatsActivity extends Activity {
 
         if (bmiResult == -1)
         {
-            Toast.makeText(bmiValue.getContext(), "Body Statistics calculation failed. Please contact a developer.", Toast.LENGTH_LONG).show();
+            Toast.makeText(bmiValue.getContext(), "BMI calculation failed. Please contact a developer.", Toast.LENGTH_LONG).show();
             finish();
         }
         else
@@ -75,6 +93,39 @@ public class BodyStatsActivity extends Activity {
             myHeight = Profile.listAll(Profile.class).get(0).getHeight();
             myHeightInMeters = myHeight/100;
             result = (myWeight/(myHeightInMeters*myHeightInMeters));
+        }
+        catch (Exception ex)
+        {
+            return -1;
+        }
+
+        return result;
+    }
+
+    private int calculateBMR()
+    {
+        int result = -1;
+        int myWeight;
+        double myHeight;
+        int myAge;
+        Sex mySex;
+
+        try
+        {
+            myWeight = Profile.listAll(Profile.class).get(0).getWeight();
+            myHeight = Profile.listAll(Profile.class).get(0).getHeight();
+            mySex = Profile.listAll(Profile.class).get(0).getSex();
+            myAge = Profile.listAll(Profile.class).get(0).getAge();
+
+            switch (mySex)
+            {
+                case MALE:
+                    result = 66 + (int)(13.7 * myWeight) + (int)(5 * myHeight) - (int)(6.8 * myAge);
+                    break;
+                case FEMALE:
+                    result = 655 + (int)(9.6 * myWeight) + (int)(1.8 * myHeight) - (int)(4.7 * myAge);
+                    break;
+            }
         }
         catch (Exception ex)
         {
