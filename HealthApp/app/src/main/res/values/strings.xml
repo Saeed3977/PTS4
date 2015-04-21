@@ -43,5 +43,4 @@
     <string name="enterpin">Enter PIN: </string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_pin">PinActivity</string>
 </resources>
