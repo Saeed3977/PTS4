@@ -63,7 +63,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -73,6 +73,7 @@
                 android:layout_height="wrap_content"/>
 
             <RadioGroup
+                android:id="@+id/activityLevelGroup"
                 android:layout_gravity="end"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">

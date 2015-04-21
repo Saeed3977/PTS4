@@ -23,6 +23,7 @@ public class FoodDiaryActivity extends Activity {
     String today;
     SimpleDateFormat sdf;
     Calendar c;
+    Calendar tempcalendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,11 @@ public class FoodDiaryActivity extends Activity {
         setContentView(R.layout.activity_food_diary);
         sdf = new SimpleDateFormat("dd-MM-yyyy");
         today = sdf.format(new Date());
+        final Button previousDate = (Button) findViewById(R.id.diaryChangeDayPrevious);
+        final Button nextDate = (Button)findViewById(R.id.diaryChangeDayNext);
+
         c = Calendar.getInstance();
+        tempcalendar = c;
         try {
             c.setTime(sdf.parse(today));
         } catch (ParseException e) {
@@ -40,9 +45,10 @@ public class FoodDiaryActivity extends Activity {
 
         populateDiaryListView();
         refreshDayValues();
-
+        nextDate.setText(getNextDate());
+        previousDate.setText(getPreviousDate());
         //Button to go to next date diary
-        Button nextDate = (Button)findViewById(R.id.diaryChangeDayNext);
+
         nextDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,17 +56,21 @@ public class FoodDiaryActivity extends Activity {
                 populateDiaryListView();
                 updateTitle();
                 refreshDayValues();
+                previousDate.setText(getPreviousDate());
+                nextDate.setText(getNextDate());
             }
         });
         //Button to go to previous date diary
-        Button previousDate = (Button) findViewById(R.id.diaryChangeDayPrevious);
+        //Button previousDate = (Button) findViewById(R.id.diaryChangeDayPrevious);
         previousDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setPreviousDate();
-                getTodaysFood();
+                populateDiaryListView();
                 updateTitle();
                 refreshDayValues();
+                previousDate.setText(getPreviousDate());
+                nextDate.setText(getNextDate());
             }
         });
 
@@ -143,6 +153,28 @@ public class FoodDiaryActivity extends Activity {
     {
         c.add(Calendar.DATE, -1);
         today = sdf.format(c.getTime());
+    }
+
+    private String getNextDate()
+    {
+        //tempcalendar = c;
+        //tempcalendar.add(Calendar.DATE, 2);
+        //return (sdf.format(tempcalendar.getTime()));
+        c.add(Calendar.DATE, 1);
+        String nextdate = sdf.format(c.getTime());
+        c.add(Calendar.DATE, -1);
+        return nextdate;
+    }
+
+    private String getPreviousDate()
+    {
+        //tempcalendar = c;
+        //tempcalendar.add(Calendar.DATE, -1);
+        //return (sdf.format(tempcalendar.getTime()));
+        c.add(Calendar.DATE, -1);
+        String prevdate = sdf.format(c.getTime());
+        c.add(Calendar.DATE, 1);
+        return prevdate;
     }
 
     private void updateTitle()

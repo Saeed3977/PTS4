@@ -41,7 +41,7 @@ public class RegisterProfileActivity extends Activity {
                             sex = Sex.FEMALE;
                         }
 
-                        newProfile = new Profile(name, weight, height, age, sex);
+                        newProfile = new Profile(name, weight, height, age, sex, ActivityLevel.MODERATELYACTIVE);
 
                         // If a passcode is entered
                         String passcode = ((EditText)findViewById(R.id.profilePinValue)).getText().toString();
