@@ -17,17 +17,18 @@ public class Profile extends SugarRecord<Profile> {
 
     private String passcode;
     private String salt;
-    private String activityLevel;
+    public ActivityLevel activityLevel;
 
     public Profile() {
     }
 
-    public Profile(String name, int weight, int height, int age, Sex sex) {
+    public Profile(String name, int weight, int height, int age, Sex sex, ActivityLevel activityLevel) {
         this.name = name;
         this.weight = weight;
         this.height = height;
         this.age = age;
         this.sex = sex;
+        this.activityLevel = activityLevel;
     }
 
     public String getName() {

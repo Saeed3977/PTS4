@@ -41,7 +41,7 @@ public class RegisterProfileActivity extends Activity {
                             sex = Sex.FEMALE;
                         }
 
-                        newProfile = new Profile(name, weight, height, age, sex);
+                        newProfile = new Profile(name, weight, height, age, sex, ActivityLevel.MODERATELYACTIVE);
                         newProfile.save();
 
                         finish();
