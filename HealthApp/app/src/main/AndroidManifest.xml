@@ -94,6 +94,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pts4.healthapp.Home" />
         </activity>
+        <activity
+            android:name=".PinActivity"
+            android:label="@string/title_activity_pin" >
+        </activity>
     </application>
 
 </manifest>

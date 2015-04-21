@@ -39,6 +39,9 @@
     <string name="extremelyActive">Extremely Active</string>
     <string name="pin">PIN</string>
     <string name="confirmPin">Confirm\nPIN</string>
+    <string name="confirmPinNoLinebreak">Confirm PIN</string>
+    <string name="enterpin">Enter PIN: </string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_pin">PinActivity</string>
 </resources>
