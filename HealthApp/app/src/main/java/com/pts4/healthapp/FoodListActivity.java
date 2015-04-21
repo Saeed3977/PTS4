@@ -40,6 +40,14 @@ public class FoodListActivity extends Activity {
         });
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        loadFoodlist();
+        populateFoodListView();
+    }
+
     private void populateFoodListView()
     {
         FoodListArrayAdapter adapter = new FoodListArrayAdapter(this, items);

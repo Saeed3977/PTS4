@@ -21,7 +21,6 @@
         android:textSize="40pt"
         android:inputType="numberPassword"
         android:layout_margin="16dp"
-        android:text="6969"
         android:maxLength="4"
         android:gravity="center_horizontal"/>
 

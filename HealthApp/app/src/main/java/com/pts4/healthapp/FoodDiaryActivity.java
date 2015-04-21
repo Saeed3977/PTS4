@@ -177,6 +177,13 @@ public class FoodDiaryActivity extends Activity {
         return prevdate;
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        populateDiaryListView();
+    }
+
     private void updateTitle()
     {
         this.setTitle("Food Diary - " + today);
