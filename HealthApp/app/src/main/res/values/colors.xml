@@ -9,4 +9,6 @@
     <color name="bmiNormal">#ff01e501</color>
     <color name="bmiOverweight">#ffff942a</color>
     <color name="bmiObesity">#ffe50006</color>
+    <color name="progressBarStart">#ff0e75af</color>
+    <color name="progressBarEnd">#ff1997e1</color>
 </resources>

@@ -2,16 +2,24 @@ package com.pts4.healthapp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class BodyStatsActivity extends Activity {
+
+    private int caloriesConsumed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +27,7 @@ public class BodyStatsActivity extends Activity {
         setContentView(R.layout.activity_body_stats);
 
         displayBMI();
+        displayProgressBar();
         displayBMR();
 
         RadioGroup rButtons = (RadioGroup)findViewById(R.id.activityLevelGroup);
@@ -54,6 +63,7 @@ public class BodyStatsActivity extends Activity {
                     myProfile.activityLevel = selectedActivityLevel;
                     myProfile.save();
                     displayBMR();
+                    displayProgressBar();
                 }
 
             }
@@ -99,7 +109,7 @@ public class BodyStatsActivity extends Activity {
         }
         else
         {
-            bmrValue.setText(String.valueOf(bmrResult));
+            bmrValue.setText(String.valueOf(caloriesConsumed) + "/" + String.valueOf(bmrResult));
         }
 
         displaySavedActivityLevel();
@@ -227,5 +237,36 @@ public class BodyStatsActivity extends Activity {
         }
 
         return result;
+    }
+
+    private void displayProgressBar()
+    {
+        ProgressBar calorieProgress = (ProgressBar)findViewById(R.id.customProgress);
+        TextView calorieProgressPercentage = (TextView)findViewById(R.id.calorieProgressPercentage);
+        caloriesConsumed = 0;
+        int caloriesNeeded = 0;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String today = sdf.format(new Date());
+
+        for (Ingredient i : Ingredient.listAll(Ingredient.class)) {
+            if (i.getMeal().getEntryDate() == null) continue;
+            if (i.getMeal().getEntryDate().equals(today)) {
+                caloriesConsumed += i.getFood().getCalories() * i.getAmount() / 100;
+            }
+        }
+
+        caloriesNeeded = calculateBMR();
+        int caloriePercentage = ((caloriesConsumed*100)/(caloriesNeeded));
+        calorieProgress.setProgress(caloriePercentage);
+        calorieProgressPercentage.setText(caloriePercentage + "%");
+
+        if (caloriePercentage > 100)
+        {
+            calorieProgress.getProgressDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+        }
+        else
+        {
+            calorieProgress.getProgressDrawable().clearColorFilter();
+        }
     }
 }

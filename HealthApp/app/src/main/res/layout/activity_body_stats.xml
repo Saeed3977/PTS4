@@ -23,7 +23,7 @@
             android:id="@+id/bodyStatsBMIValue"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="( ͡° ͜ʖ ͡°)"
+            android:text="00.0"
             android:textSize="30pt"
             android:gravity="center"/>
 
@@ -35,6 +35,12 @@
             android:textSize="12pt"
             android:gravity="center"/>
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/backgroundLight"
+        android:layout_below="@+id/bodyStatsBMIRow"></View>
 
     <LinearLayout
         android:id="@+id/bodyStatsCaloriesRow"
@@ -56,54 +62,89 @@
             android:id="@+id/bodyStatsCaloriesValue"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="( ͡° ͜ʖ ͡°)"
+            android:text="0000"
             android:textSize="30pt"
             android:gravity="center"/>
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+        <RelativeLayout
+            android:id="@+id/progressBarRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                android:id="@+id/customProgress"
+                style="@style/calorieProgressBar"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toLeftOf="@+id/calorieProgressPercentage"/>
 
             <TextView
-                style="@style/registerProfileRowTitle"
-                android:text="@string/activityLevel"
+                android:id="@+id/calorieProgressPercentage"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <RadioGroup
-                android:id="@+id/activityLevelGroup"
-                android:layout_gravity="end"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-                <RadioButton
-                    android:id="@+id/activityLevelSedentary"
-                    style="@style/registerProfileRowRadioButtonSmall"
-                    android:text="@string/sedentary"/>
-
-                <RadioButton
-                    android:id="@+id/activityLevelLightlyActive"
-                    style="@style/registerProfileRowRadioButtonSmall"
-                    android:text="@string/lightlyActive"/>
-
-                <RadioButton
-                    android:id="@+id/activityLevelModeratelyActive"
-                    style="@style/registerProfileRowRadioButtonSmall"
-                    android:text="@string/moderatelyActive"/>
-
-                <RadioButton
-                    android:id="@+id/activityLevelVeryActive"
-                    style="@style/registerProfileRowRadioButtonSmall"
-                    android:text="@string/veryActive"/>
-
-                <RadioButton
-                    android:id="@+id/activityLevelExtremelyActive"
-                    style="@style/registerProfileRowRadioButtonSmall"
-                    android:text="@string/extremelyActive"/>
-            </RadioGroup>
-       </LinearLayout>
-
+                android:layout_height="wrap_content"
+                android:text="XX %"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="4dp"/>
+            </RelativeLayout>
     </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="5dp"
+        android:background="@color/backgroundLight"
+        android:layout_below="@+id/bodyStatsCaloriesRow"></View>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/bodyStatsCaloriesRow"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/activityLevelTitle"
+            style="@style/registerProfileRowTitle"
+            android:text="@string/activityLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"/>
+
+        <RadioGroup
+            android:id="@+id/activityLevelGroup"
+            android:layout_toRightOf="@+id/activityLevelTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true">
+            <RadioButton
+                android:id="@+id/activityLevelSedentary"
+                style="@style/registerProfileRowRadioButtonSmall"
+                android:text="@string/sedentary"/>
+
+            <RadioButton
+                android:id="@+id/activityLevelLightlyActive"
+                style="@style/registerProfileRowRadioButtonSmall"
+                android:text="@string/lightlyActive"/>
+
+            <RadioButton
+                android:id="@+id/activityLevelModeratelyActive"
+                style="@style/registerProfileRowRadioButtonSmall"
+                android:text="@string/moderatelyActive"/>
+
+            <RadioButton
+                android:id="@+id/activityLevelVeryActive"
+                style="@style/registerProfileRowRadioButtonSmall"
+                android:text="@string/veryActive"/>
+
+            <RadioButton
+                android:id="@+id/activityLevelExtremelyActive"
+                style="@style/registerProfileRowRadioButtonSmall"
+                android:text="@string/extremelyActive"/>
+        </RadioGroup>
+    </RelativeLayout>
 
 </RelativeLayout>
