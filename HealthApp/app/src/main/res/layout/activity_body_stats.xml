@@ -23,7 +23,7 @@
             android:id="@+id/bodyStatsBMIValue"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="( ͡° ͜ʖ ͡°)"
+            android:text="00.0"
             android:textSize="30pt"
             android:gravity="center"/>
 
@@ -56,9 +56,33 @@
             android:id="@+id/bodyStatsCaloriesValue"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="( ͡° ͜ʖ ͡°)"
+            android:text="0000"
             android:textSize="30pt"
             android:gravity="center"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                android:id="@+id/customProgress"
+                style="@style/calorieProgressBar"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toLeftOf="@+id/calorieProgressPercentage"/>
+
+            <TextView
+                android:id="@+id/calorieProgressPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XX %"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="4dp"/>
+            </RelativeLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
