@@ -42,6 +42,22 @@ public class RegisterProfileActivity extends Activity {
                         }
 
                         newProfile = new Profile(name, weight, height, age, sex);
+
+                        // If a passcode is entered
+                        String passcode = ((EditText)findViewById(R.id.profilePinValue)).getText().toString();
+                        String passcodeConfirm = ((EditText)findViewById(R.id.profileConfirmPinValue)).getText().toString();
+
+
+                        if (passcode != null && passcode.equals("") == false || passcodeConfirm != null && passcodeConfirm.equals("") == false) {
+
+                            // Throw an exception if the passcodes do not match
+                            if (passcode.equals(passcodeConfirm) == false) throw new Exception("Passcodes do not match");
+
+                            // Otherwise set the passcode
+                            newProfile.createPasscode(passcode);
+                        }
+
+
                         newProfile.save();
 
                         finish();
